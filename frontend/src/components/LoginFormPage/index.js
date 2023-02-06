@@ -1,56 +1,79 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import * as sessionActions from '../../store/session';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-
-const LoginForm = () => {
-
-    const [credential, setCredential ] = useState ('')
-    const [password, setPassword] = useState('')
+function LoginFormPage() {
+    const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
+    const [credential, setCredential] = useState('');
+    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [errors, setErrors] = useState([]);
     
     const toggleShowPassword= (e) => {
-        e.prevent.default()
+        e.preventDefault()
         setShowPassword(showPassword ? false : true);
     };
 
+    if (sessionUser) return <Redirect to="/" />;
+
     const handleSubmit = (e) => {
-        e.prevent.default()
-        console.log(e)
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.login({ credential, password }))
+        .catch(async (res) => {
+            let data;
+            try {
+            data = await res.clone().json();
+            } catch {
+            data = await res.text();
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+        });
     }
 
     return (
         <form onSubmit={handleSubmit}>
+            <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
             <h1>Login to your account</h1>
-        <label>Username or email
-            <input 
-                type="text"
-                value={credential}
-                onChange={(e) => {
-                    console.log(credential)
-                    setCredential(e.target.value)}
-                }
-            />
-        </label>
-        <br/>
-        <label>Password
-            <input 
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => {
-                    console.log(password)
-                    setPassword(e.target.value)}
-                }
-            />
-        </label>
-        <br/>
-        <button onClick={(e) => toggleShowPassword(e)}>Show</button>
-        <br/>
-        <button type="Submit">Login</button>
-        <br/>
-        <Link to="/">Forgot your password?</Link>
-
+            <label> Username or email
+                    <input
+                    type="text"
+                    value={credential}
+                    onChange={(e) => {
+                        console.log(credential)
+                        setCredential(e.target.value)}
+                    }
+                    required
+                />
+            </label>
+            <br/>
+            <label>
+                Password
+                <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => {
+                        console.log(password)
+                        setPassword(e.target.value)}
+                    }
+                    required
+                />
+            </label>
+            <br/>
+            <button onClick={(e) => toggleShowPassword(e)}>Show</button>
+            <br/>
+            <button type="Submit">Login</button>
+            <br/>
+            <Link to="/">Forgot your password?</Link>
         </form>
-    )
+    );
 }
 
-export default LoginForm
+export default LoginFormPage;
