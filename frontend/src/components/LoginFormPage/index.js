@@ -8,12 +8,17 @@ const LoginForm = () => {
     return (
         <form>
             <h1>Login to your account</h1>
-            <label>Username or email
-                {/* <input 
+        <label>Username or email
+            <input 
                 type="text"
-                /> */}
+                value={credential}
+                onChange={(e) => {
+                    console.log(credential)
+                    setCredential(e.target.value)}
+                }
+            />
+        </label>
 
-            </label>
         </form>
     )
 }
