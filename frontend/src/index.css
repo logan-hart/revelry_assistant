@@ -1,1 +1,61 @@
-/* TODO Add site wide styles */
+
+/* body {
+    font-family: AlternateGot;
+
+} */
+
+.button {
+    cursor: pointer;
+    border-radius: 20px;
+    border-style: solid;
+    -webkit-tap-highlight-color: transparent;
+    font-family: AlternateGothicProCyrillic, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0px;
+    line-height: 12px;
+    border-width: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    min-width: 40px;
+    background-color: transparent;
+    color: rgb(242, 242, 242);
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.red-button{
+    background-color: rgb(255, 72, 72);
+    border-color: rgb(255, 72, 72);
+}
+
+.white-button{
+    border-color: rgb(255, 72, 72);
+    color: black;
+}
+
+.black-button{
+    border-color: rgb(255, 72, 72);
+    background-color: black;
+    color: white
+}
+
+.form-input {
+    height: 40px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 0px 20px;
+    background-color: rgb(21, 21, 21);
+    border: 1px solid transparent;
+    width: 100%;
+    color: rgb(170, 170, 170);
+}
