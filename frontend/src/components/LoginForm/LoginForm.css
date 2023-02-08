@@ -1,5 +1,34 @@
+div.portal{
+    height: 100%;
+}
 
-#show-button{
+#login-modal {
+    display: flex;
+    position: fixed;
+    height: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    background-color: rgb(199, 38, 23);
+    z-index: 100
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: inherit;
+    background-color: black;
+    z-index: 100
+}
+
+div#login-modal * {
+    color: white;
+}
+
+button #show-button{
     background-color: transparent;
     border: none;
     color: rgb(255, 72, 72)
@@ -10,9 +39,19 @@
     border-color: rgb(255, 72, 72);
 }
 
+#close-modal{
+    top: 0;
+    position: fixed;
+    color: white;
+    font-size: xx-large;
+    z-index: 100;
+    left: 90%;
+    cursor: pointer;
+}
+
 .vl {
     border-left: 1px solid white;
-    height: 500px;
+    height: 100%;
     position: absolute;
     left: 50%;
     margin-left: -3px;

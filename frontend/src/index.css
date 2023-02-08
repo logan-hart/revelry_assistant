@@ -1,8 +1,14 @@
+html{
+    height: 100%;
+}
 
-/* body {
-    font-family: AlternateGot;
+body {
+    height: inherit;   
+}
 
-} */
+.portal{
+    height: inherit;
+}
 
 .button {
     cursor: pointer;

@@ -10,11 +10,13 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
+    Event.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
-  
+    ApplicationRecord.connection.reset_pk_sequence!('events')  
+
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
     User.create!(
@@ -24,18 +26,43 @@ ApplicationRecord.transaction do
       username: 'DemoUser', 
       password: 'password',
       age: 21,
-      subscribed: true,
+      subscribed: true
     )
   
     # More users
     10.times do 
       User.create!({
-        firstname: Faker.name.first,
-        surname: Faker.name.last,
+        firstname: Faker::Name.first_name,
+        surname: Faker::Name.last_name,
         email: Faker::Internet.unique.email,
         username: Faker::Internet.unique.username(specifier: 3),
         password: 'password',
         age: rand(16...50)
+      }) 
+    end
+
+    puts "Creating events..."
+    Event.create!(
+      name: 'demoEvent',
+      start_date: '2023-04-23',
+      end_date: '2023-04-23',
+      start_time: '20:00',
+      end_time: '24:00',
+      cost: 50,
+      age_minimum: 21,
+      promoter_id: 1
+    )
+
+    10.times do 
+      Event.create!({
+        name: Faker::Company.name,
+        start_date: '2023-04-23',
+        end_date: '2023-04-23',
+        start_time: '20:00',
+        end_time: '24:00',
+        cost: rand(25..100),
+        age_minimum: rand(18..21),
+        promoter_id: 1
       }) 
     end
   

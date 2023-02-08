@@ -1,0 +1,1 @@
+json.extract! event :id, :name, :start_date, :end_date, :start_time, :end_time, :lineup, :genres, :details, :cost, :age_minimum, :images, :promotional_links, :media, :available_tickets, :promoter_id
