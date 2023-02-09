@@ -9,7 +9,9 @@
     display: flex;
     justify-content: center;
     height: 54px;
-    background: black
+    background: black;
+    position: sticky; top: 0;
+    z-index: 1;
 }
 
 #layout-3{
@@ -17,4 +19,13 @@
     justify-content: center;
     height: 800px;
     background-color: #131313;
+}
+
+.sub-nav-container{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container{
+    align-items: flex-end;
 }

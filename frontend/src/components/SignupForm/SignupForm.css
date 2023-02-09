@@ -1,0 +1,105 @@
+#register-layout-1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 236px;
+    background-color: #131313;
+}
+
+#register-layout-2{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background: white;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+#register-column-1{
+    display: inline-block;
+    width: 40%;
+}
+
+#register-column-2{
+    display: flex;
+    width: 50%;
+}
+
+#register-column-21{
+    width: 50%;
+    
+}
+
+#register-column-22{
+    width: 50%;
+}
+
+#signup-header{
+    flex-direction: column-reverse;
+}
+
+
+.birthday-options{
+    display: flex;
+}
+
+.signup-section{
+    margin-bottom: 50px;
+}
+
+.half-size{
+    width: 40%
+}
+
+.stack{
+    padding-bottom: 15px;
+}
+
+.checkbox {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #F2F2F2;
+    border: none;
+    accent-color: #F2F2F2;
+}
+
+#signup-submit{
+    margin-bottom: 30px;
+}
+
+#tandcs{
+    font-size: 15px;
+}
+
+#signup-content-container{
+    flex-direction: column;
+}
+
+#columns {
+    display: flex;
+}
+
+#signup-details{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: baseline;
+}
+
+#your-details{
+    margin-right: 15px;
+}
+
+#gender-dropdown{
+    border: none;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    height: 36px;
+    width: 186.4px
+}
+
+.login-section{
+    width: 123%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -68,7 +68,7 @@ export const logout = () => async (dispatch) => {
     method: "DELETE"
   });
   storeCurrentUser(null);
-  dispatch(removeCurrentUser());
+  await dispatch(removeCurrentUser());
   return response;
 };
 

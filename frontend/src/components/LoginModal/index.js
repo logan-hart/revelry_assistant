@@ -57,7 +57,7 @@ function LoginModal({open, onClose}) {
                     <h1 className='white-text'>Login to your account</h1>
                     <label className="form-label white-text"> Username or email
                             <input
-                            className='form-input'
+                            className='login-form-input'
                             type="text"
                             value={credential}
                             onChange={(e) => {
@@ -72,7 +72,7 @@ function LoginModal({open, onClose}) {
                             <button id="show-button" onClick={toggleShowPassword} >Show <i className="fa-regular fa-eye" style={{color: 'rgb(255, 72, 72)'}}></i></button>
                             </div>  
                             <input
-                                className="form-input"
+                                className="login-form-input"
                                 type={showPassword ? "text" : "password"}
                                 value={password}
                                 onChange={(e) => {

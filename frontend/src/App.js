@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <NavBar/>
-
       <Switch>
         <Route path="/events">
           <Events />

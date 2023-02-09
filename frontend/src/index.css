@@ -11,6 +11,10 @@ body {
     height: inherit;
 }
 
+/* div{
+    border: 1px solid red;
+} */
+
 h1{
     font-size: xx-large;
     margin-bottom: 30px;
@@ -18,18 +22,41 @@ h1{
 }
 
 h2{
-    font-size: x-large;
+    font-size: 2em;
 }
 
 h3{
     font-size: large;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+p {
+    word-wrap: normal;
 }
 
 
+.big-text{
+    font-size: 5em;
+}
 .container {
     width: 1180px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 100%;
+    display:flex;
+}
+
+.content-header{
+    display:flex;
+    flex-direction: column-reverse;
+}
+
+.column {
+    width: 50%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    
 }
 
 .button {
@@ -53,6 +80,11 @@ h3{
 
 .link:hover{
     color: rgb(255, 72, 72);
+}
+
+button > img,
+button > span {
+  vertical-align: middle;
 }
 
 .red-button{
@@ -94,13 +126,21 @@ h3{
     box-sizing: border-box;
     border-radius: 20px;
     padding: 0px 20px;
-    background-color: rgb(21, 21, 21);
+    background-color: #F2F2F2;
     border: 1px solid transparent;
-    color: rgb(170, 170, 170);
+    color: black;
+    padding-right: 20px;
+    margin-right: 20px;
 }
 
 .form-label{
-    font-size: xx-small;
+    font-size: 11px;
+    letter-spacing: .05em;
+    margin-bottom: 4px; 
+}
+
+.grey-text{
+    color: #F2F2F2
 }
 
 .white-text {
@@ -111,10 +151,7 @@ h3{
     color:rgb(255, 72, 72)
 }
 
-.dropdown {
-    border-radius: 20px;
-}
-
-.checkbox {
-    background-color: #eee;
+.stack {
+    display: flex;
+    flex-direction: column;
 }

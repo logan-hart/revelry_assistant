@@ -9,6 +9,7 @@ div.portal{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50% );
+    
     background-color: black;
     z-index: 100
 }
@@ -29,7 +30,8 @@ button#show-button{
     border: none;
     color: rgb(255, 72, 72);
     font-size: xx-small;
-    margin-left: 107px;
+    margin-left: 90px;
+    cursor: pointer;
 }
 
 
@@ -68,4 +70,17 @@ button#show-button{
 
 #login-right{
     margin-left: 80px;
+}
+
+.login-form-input {
+    height: 36px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 0px 20px;
+    background-color: rgb(21, 21, 21);
+    border: 1px solid transparent;
+    color: rgb(170, 170, 170);
 }

@@ -18,15 +18,14 @@ function UserModal({open, onClose}) {
         <>
             <div id="modal-overlay"></div>
             <button onClick={onClose} id="close-modal">&times;</button>
-            
+
             <div>
                 <div id="user-modal">
-                <div className='vl'></div>
                     <div className='white-text'>{sessionUser.username}</div>
-                    <Link className="link" to="">My tickets</Link>
-                    <Link className="link" to="">Following</Link>
-                    <Link className="link" to="">Edit Account</Link>
-                    <Link className="link" onClick={logout} to='/'>Logout</Link>
+                    <Link className="link" to="/events">My tickets</Link>
+                    <Link className="link" to="/events">Following</Link>
+                    <Link className="link" to="/events">Edit Account</Link>
+                    <Link className="link" onClick={logout} to='/events'>Logout</Link>
                 </div>
             </div>
         </>,
