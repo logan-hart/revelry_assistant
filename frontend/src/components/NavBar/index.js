@@ -1,27 +1,34 @@
 import { NavLink, Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useState } from "react"
+import LoginModal from "../LoginModal"
+import UserModal from "../UserModal"
 import './navBar.css'
-import LoginForm from "../LoginForm"
 
 
 function NavBar() {
     const sessionUser = useSelector(state => state.session.user)
     let account = sessionUser ? sessionUser.username : 'My account'
-    const[isOpen, setIsOpen] = useState(false)
+    const[loginModalOpen, setLoginModalOpen] = useState(false)
+    const[userModalOpen, setUserModalOpen] = useState(false)
     
     return (
-        <div className="navContainer">
-            <div id="leftNav">
-                <button id="icon"><i className="fa-brands fa-ravelry"></i><i className="fa-brands fa-asymmetrik"></i></button>
-                <NavLink to="/events">Events</NavLink>
-                <button id="Search"><i className="fa-solid fa-magnifying-glass"></i></button>
+        <div id="nav-layout">
+
+            <div className="nav-container container">
+                <div id="left-nav">
+                    <button id="icon"><i className="fa-brands fa-ravelry"></i><i className="fa-brands fa-asymmetrik"></i></button>
+                    <NavLink className="link nav-link" to="/events">Events</NavLink>
+                    <button id="Search"><i className="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div id="right-nav">
+                    <button id="profile" className="nav-link" onClick={() => sessionUser ? setUserModalOpen(true) : setLoginModalOpen(true)}><i className="fa-regular fa-user"> </i> {account}</button>
+                    <LoginModal open={loginModalOpen} onClose={()=> setLoginModalOpen(false)}></LoginModal>
+                    <UserModal open={userModalOpen} onClose={()=> setUserModalOpen(false)}></UserModal>
+                    <i className="fa-solid fa-bars"></i>
+                </div>
             </div>
-            <div id="rightnav">
-                <button id="profile" onClick={() => setIsOpen(true)}><i className="fa-regular fa-user"></i>{account}</button>
-                <LoginForm open={isOpen} onClose={()=> setIsOpen(false)}></LoginForm>
-                <button className="menu"><i className="fa-solid fa-bars"></i></button>
-            </div>
+
         </div>
     )
 }

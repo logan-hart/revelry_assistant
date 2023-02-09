@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 
@@ -39,7 +40,6 @@ const SignupForm = () => {
         return age;
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         let age = getAge()
@@ -68,7 +68,7 @@ const SignupForm = () => {
             <h2>/ Your Details</h2>
             <div><span>*</span>required</div>
             <br/>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id='register-form'>
                 <ul>
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
@@ -95,7 +95,7 @@ const SignupForm = () => {
                         <label> Gender</label>
                             <br/>
                             <select onChange={(e) => setGender(e.target.value)}>
-                                <option value={gender}></option>
+                                <option value={gender} className='dropdown'></option>
                                     {genderOptions.map((gender) => <option key={gender} value={gender}>{gender}</option>)}
                             </select>
                     
@@ -139,7 +139,7 @@ const SignupForm = () => {
                                 onChange={(e) => setPassword(e.target.value)}   
                             />
                         <br/>
-                        <button id="show-button" onClick={(e) => toggleShowPassword(e)}>Show <i className="fa-regular fa-eye"></i></button>
+                        <button id="show-button" onClick={(e) => toggleShowPassword(e)}>Show <i className="fa-regular fa-eye red" ></i></button>
                 </div>
                 <br/>
                 <div>
@@ -177,16 +177,16 @@ const SignupForm = () => {
                 <h3>Join the RA community</h3>
                 <div>
                     <p> Subscribe to the weekly RA Newsletter to receive updates on the latest news and events.</p>
-                    <input onClick={(e) => setSubscribed(!subscribed)} type='checkbox' value="subscribed" defaultChecked/>
+                    <input onClick={(e) => setSubscribed(!subscribed)} type='checkbox' value="subscribed" className="checkbox" defaultChecked/>
                     <label htmlFor='subscribed'>Subscribe</label>
                 </div>
                 <br/>
-                <button className="button red-button" id="submit-button" type="Submit">Submit</button>
+                <button className="button red-button" type="Submit">Submit</button>
                 <p>By registering, you are indicating that you have read and agree to the Terms of Use and Privacy Policy</p>
             </form>
             <div>
                 <h2>Already have an Account?</h2>
-                <button className="button white-button">Login</button>
+                <Link className="link" to="/login"><button className="button white-button">Login</button></Link>
 
             </div>
         </>

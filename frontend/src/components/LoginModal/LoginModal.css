@@ -9,7 +9,7 @@ div.portal{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50% );
-    background-color: rgb(199, 38, 23);
+    background-color: black;
     z-index: 100
 }
 
@@ -24,20 +24,14 @@ div.portal{
     z-index: 100
 }
 
-div#login-modal * {
-    color: white;
-}
-
-button #show-button{
+button#show-button{
     background-color: transparent;
     border: none;
-    color: rgb(255, 72, 72)
+    color: rgb(255, 72, 72);
+    font-size: xx-small;
+    margin-left: 107px;
 }
 
-#login-button {
-    background-color: rgb(255, 72, 72);
-    border-color: rgb(255, 72, 72);
-}
 
 #close-modal{
     top: 0;
@@ -50,10 +44,28 @@ button #show-button{
 }
 
 .vl {
-    border-left: 1px solid white;
+    border-left: 1px solid rgb(55,55,55);
     height: 100%;
     position: absolute;
     left: 50%;
     margin-left: -3px;
     top: 0;
+}
+
+#forgot-password{
+    font-size: xx-small;
+    cursor: pointer;
+    color: grey;
+}
+
+#login{
+    margin-right: 22px;
+}
+
+#demo-login{
+    margin-top: 28px;
+}
+
+#login-right{
+    margin-left: 80px;
 }

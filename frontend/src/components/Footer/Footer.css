@@ -1,0 +1,6 @@
+.footer-layout {
+    display: flex;
+    justify-content: center;
+    height: 515px;
+    background-color: black
+}

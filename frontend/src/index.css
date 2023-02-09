@@ -4,17 +4,38 @@ html{
 
 body {
     height: inherit;   
+    font-family: AlternateGothicProCyrillic, sans-serif;
 }
 
 .portal{
     height: inherit;
 }
 
+h1{
+    font-size: xx-large;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+h2{
+    font-size: x-large;
+}
+
+h3{
+    font-size: large;
+}
+
+
+.container {
+    width: 1180px;
+    border: 1px solid red;
+    height: 100%;
+}
+
 .button {
     cursor: pointer;
     border-radius: 20px;
     border-style: solid;
-    -webkit-tap-highlight-color: transparent;
     font-family: AlternateGothicProCyrillic, sans-serif;
     font-size: 11px;
     letter-spacing: 0px;
@@ -22,27 +43,37 @@ body {
     border-width: 2px;
     padding-left: 20px;
     padding-right: 20px;
-    height: 40px;
-    min-width: 40px;
-    background-color: transparent;
-    color: rgb(242, 242, 242);
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
+    height: 38px;
+}
+
+.link {
     text-decoration: none;
-    box-sizing: border-box;
+    color: #666666
+}
+
+.link:hover{
+    color: rgb(255, 72, 72);
 }
 
 .red-button{
     background-color: rgb(255, 72, 72);
     border-color: rgb(255, 72, 72);
+    color: white;
+}
+
+.red-button:hover{
+    background-color: #666666;
+    border-color: #666666;
+    color: black
 }
 
 .white-button{
     border-color: rgb(255, 72, 72);
     color: black;
+}
+.white-button:hover{
+    background-color: rgb(255, 72, 72);
+    color: white
 }
 
 .black-button{
@@ -51,9 +82,12 @@ body {
     color: white
 }
 
+.black-button:hover{
+    background-color:rgb(255, 72, 72)
+}
+
 .form-input {
-    height: 40px;
-    -webkit-box-align: center;
+    height: 36px;
     align-items: center;
     display: flex;
     position: relative;
@@ -62,6 +96,25 @@ body {
     padding: 0px 20px;
     background-color: rgb(21, 21, 21);
     border: 1px solid transparent;
-    width: 100%;
     color: rgb(170, 170, 170);
+}
+
+.form-label{
+    font-size: xx-small;
+}
+
+.white-text {
+    color: white
+}
+
+.red-text {
+    color:rgb(255, 72, 72)
+}
+
+.dropdown {
+    border-radius: 20px;
+}
+
+.checkbox {
+    background-color: #eee;
 }

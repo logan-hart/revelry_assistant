@@ -1,11 +1,38 @@
-.navContainer {
-    display: inline-flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 5%;
-    background-color: black;
+#nav-layout{
+    display: flex;
+    justify-content: center;
 }
 
-div.navContainer * {
-    color: white;
+.nav-container {
+    display: inline-flex;
+    justify-content: space-between;
+    height: 20%;
+    padding: 20px
 }
+
+#left-nav{
+    width: 142px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#right-nav{
+    width: 142px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+}
+
+/* div.navContainer * {
+
+} */
