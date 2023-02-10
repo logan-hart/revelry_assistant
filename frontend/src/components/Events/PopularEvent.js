@@ -1,0 +1,20 @@
+
+function PopularEvent({popEvent}) {
+    const {name, lineup, startDate} = popEvent
+    
+    let lineupList =() =>  {
+        if (lineup) return lineup.join('/ ')
+    } 
+
+    return (
+        <div className="popular-event-container">
+            <div className='popular-img'>{popEvent.image}</div>
+            <div className='popular-date'><span className="white-text">pop</span></div>
+            <div className='popular-title'><span className="white-text">{popEvent.name}: {lineupList()}</span></div>
+            <div className='popular-location'><i className="fa-solid fa-location-dot red-text"></i><span className="white-text">{popEvent.venue}</span></div>
+            <div className='popular-attending'><i className="fa-regular fa-user red-text"></i><span className="white-text">sold</span></div>
+        </div>
+    )
+}
+
+export default PopularEvent

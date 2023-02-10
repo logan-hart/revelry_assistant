@@ -10,15 +10,17 @@
     justify-content: center;
     height: 54px;
     background: black;
-    position: sticky; top: 0;
+    position: sticky; 
+    top: 0;
     z-index: 1;
 }
 
 #layout-3{
     display: flex;
     justify-content: center;
-    height: 800px;
+    height: fit-content;
     background-color: #131313;
+    padding-bottom: 60px
 }
 
 .sub-nav-container{
@@ -28,4 +30,86 @@
 
 .header-container{
     align-items: flex-end;
+}
+
+#event-submit{
+    background-color: transparent;
+}
+
+.popular-header{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px
+}
+
+#event-container{
+    flex-direction: column;
+}
+
+.event-list-container{
+    display: flex;
+    width: 55%;
+    border-top: 1px solid #666666;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.img-div{
+    height: 146px;
+    width: 260px;
+    background-color: blue;
+
+}
+
+.info-div{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    width: 60%;
+}
+
+#sticky-date{
+    position: sticky;
+    top: 2.16em;
+    margin-bottom: 0px;
+    z-index: 2;
+    background-color: #131313;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 25px;
+    
+}
+
+.popular-events{
+    display: flex;
+    justify-content: space-between;
+    height: 655px;
+}
+
+.popular-event-container{
+    width: 24%;
+    height: 100%;
+}
+
+.popular-img{
+    height: 60%;
+    background-color: blue;
+}
+
+.popular-date{
+    height: 10%;
+}
+
+.popular-title{
+    height: 10%;
+}
+
+.popular-location{
+    height: 10%;
+}
+
+.popular-attending{
+    height: 10%;
 }

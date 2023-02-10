@@ -50,7 +50,8 @@ ApplicationRecord.transaction do
       end_time: '24:00',
       cost: 50,
       age_minimum: 21,
-      promoter_id: 1
+      promoter_id: 1,
+      lineup: ['Disclosure', 'Odesza', 'Martin Garix', 'Oliver Heldens']
     )
 
     10.times do 
@@ -62,7 +63,7 @@ ApplicationRecord.transaction do
         end_time: '24:00',
         cost: rand(25..100),
         age_minimum: rand(18..21),
-        promoter_id: 1
+        promoter_id: rand(1..10)
       }) 
     end
   

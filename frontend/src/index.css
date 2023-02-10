@@ -7,13 +7,17 @@ body {
     font-family: AlternateGothicProCyrillic, sans-serif;
 }
 
+li {
+    list-style-type: none;
+}
+
 .portal{
     height: inherit;
 }
 
-/* div{
+div{
     border: 1px solid red;
-} */
+}
 
 h1{
     font-size: xx-large;
@@ -140,7 +144,11 @@ button > span {
 }
 
 .grey-text{
-    color: #F2F2F2
+    color: #F2F2F2;
+}
+
+.dark-text {
+    color: #666666;
 }
 
 .white-text {

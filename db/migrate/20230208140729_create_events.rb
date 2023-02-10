@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.date :end_date, null:false
       t.time :start_time, null: false
       t.time :end_time, null:false
-      t.string :lineup
+      t.string :lineup, array:true
       t.string :genres
       t.string :details
       t.integer :cost, null:false
