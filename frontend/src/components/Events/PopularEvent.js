@@ -1,6 +1,6 @@
 
 function PopularEvent({popEvent}) {
-    const {name, lineup, startDate} = popEvent
+    const {name, lineup, startDate, photoUrl} = popEvent
     
     let lineupList =() =>  {
         if (lineup) return lineup.join('/ ')
@@ -8,7 +8,7 @@ function PopularEvent({popEvent}) {
 
     return (
         <div className="popular-event-container">
-            <div className='popular-img'>{popEvent.image}</div>
+            <div className='popular-img'><img id="large-event-poster"src={photoUrl}/></div>
             <div className='popular-date'><span className="white-text">pop</span></div>
             <div className='popular-title'><span className="white-text">{popEvent.name}: {lineupList()}</span></div>
             <div className='popular-location'><i className="fa-solid fa-location-dot red-text"></i><span className="white-text">{popEvent.venue}</span></div>

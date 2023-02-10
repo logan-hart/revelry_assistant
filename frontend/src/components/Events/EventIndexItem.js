@@ -1,5 +1,5 @@
 function EventIndexItem({event}){
-    const {name, lineup, startDate} = event
+    const {name, lineup, startDate, photoUrl} = event
 
     let lineupList =() =>  {
         if (lineup) return lineup.join('/ ')
@@ -9,7 +9,7 @@ function EventIndexItem({event}){
         <li>
             <div className='event-list-container'>
                 <div className='img-div'>
-
+                    <img id="small-event-poster"src={photoUrl}/>
                 </div>
                 <div className='info-div'>
                     <div className="white-text">

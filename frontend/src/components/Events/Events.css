@@ -113,3 +113,14 @@
 .popular-attending{
     height: 10%;
 }
+
+#small-event-poster{
+    height: inherit;
+    width: inherit;
+
+}
+
+#large-event-poster{
+    height: 100%;
+    width: 100%;
+}

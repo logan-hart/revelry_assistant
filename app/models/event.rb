@@ -4,6 +4,8 @@ class Event < ApplicationRecord
 
     belongs_to :user, foreign_key: :promoter_id, class_name: :User
 
+    has_one_attached :photo
+    
     # def remaining_tickets
     #     available_tickets - tickets_sold
     # end
