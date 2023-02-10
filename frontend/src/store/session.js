@@ -1,3 +1,4 @@
+import { Redirect } from "react-router-dom";
 import csrfFetch from "./csrf.js";
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
@@ -70,6 +71,7 @@ export const logout = () => async (dispatch) => {
   storeCurrentUser(null);
   await dispatch(removeCurrentUser());
   return response;
+
 };
 
 const initialState = { 

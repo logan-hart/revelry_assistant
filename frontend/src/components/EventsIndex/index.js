@@ -10,7 +10,7 @@ import SubNav from '../SubNav'
 import Header from '../Header'
 import './Events.css'
 
-function Events(){
+function EventsIndex(){
     const dispatch = useDispatch()
     const events = useSelector(getEvents)
     const popularEvents = useSelector(getPopularEvents)
@@ -65,4 +65,4 @@ function Events(){
     )
 }
 
-export default Events
+export default EventsIndex

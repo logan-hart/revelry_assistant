@@ -84,3 +84,8 @@ button#show-button{
     border: 1px solid transparent;
     color: rgb(170, 170, 170);
 }
+
+.login-errors{
+    margin-top: 7px;
+    font-size: 13px
+}

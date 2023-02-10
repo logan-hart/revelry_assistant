@@ -1,4 +1,4 @@
-import Events from '../Events'
+import Events from '../EventsIndex'
 import './Content.css'
 
 function Content() {

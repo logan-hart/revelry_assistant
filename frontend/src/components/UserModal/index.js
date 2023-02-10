@@ -9,7 +9,7 @@ function UserModal({open, onClose}) {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
 
-    const logout = (e) => {
+    const logout = () => {
         return dispatch(sessionActions.logout())
     }
     
@@ -25,7 +25,9 @@ function UserModal({open, onClose}) {
                     <Link className="link" to="/events">My tickets</Link>
                     <Link className="link" to="/events">Following</Link>
                     <Link className="link" to="/events">Edit Account</Link>
-                    <Link className="link" onClick={logout} to='/events'>Logout</Link>
+                    <Link className="link" onClick={() => {
+                        onClose() 
+                        logout()}} to='/events'>Logout</Link>
                 </div>
             </div>
         </>,

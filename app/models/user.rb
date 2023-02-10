@@ -3,14 +3,14 @@ class User < ApplicationRecord
 
   validates :username, 
     uniqueness: true, 
-    length: { in: 3..30 }, 
+    length: { in: 3..30, message: 'too short' }, 
     format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, 
-    uniqueness: true, 
-    length: { in: 3..255 }, 
+    uniqueness: true,  
+    
     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :session_token, presence: true, uniqueness: true
-  validates :password, length: { in: 6..255 }, allow_nil: true
+  validates :password, length: { in: 6..255, message: 'must be more than 6 characters' }, allow_nil: true
 
   before_validation :ensure_session_token
 
