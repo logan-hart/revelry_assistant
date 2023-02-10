@@ -14,7 +14,8 @@ json.extract! event,
     :promotional_links, 
     :media, 
     :available_tickets, 
-    :promoter_id
+    :promoter_id,
+    :tickets_sold
 
 if event.photo.attached?
     json.photo_url url_for(event.photo) 

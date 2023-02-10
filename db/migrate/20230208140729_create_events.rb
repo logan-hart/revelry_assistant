@@ -15,6 +15,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.string :promotional_links
       t.string :media
       t.integer :available_tickets
+      t.integer :tickets_sold, default: 0
       t.references :promoter, foreign_key: {to_table: :users}
 
       t.timestamps

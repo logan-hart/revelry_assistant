@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_185423) do
     t.string "promotional_links"
     t.string "media"
     t.integer "available_tickets"
+    t.integer "tickets_sold", default: 0
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
