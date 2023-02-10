@@ -52,7 +52,8 @@ ApplicationRecord.transaction do
       age_minimum: 21,
       promoter_id: 1,
       lineup: ['Disclosure', 'Odesza', 'Martin Garix', 'Oliver Heldens'],
-      tickets_sold: 450
+      tickets_sold: 450,
+      venue: 'Basement'
 
     )
 
@@ -66,7 +67,8 @@ ApplicationRecord.transaction do
         cost: rand(25..100),
         age_minimum: rand(18..21),
         promoter_id: rand(1..10),
-        tickets_sold: rand(1..450)
+        tickets_sold: rand(1..450),
+        venue: Faker::Address.city_suffix
 
       }) 
     end

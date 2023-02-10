@@ -1,5 +1,5 @@
 function EventIndexItem({event}){
-    const {name, lineup, startDate, photoUrl, ticketsSold} = event
+    const {name, lineup, startDate, photoUrl, ticketsSold, venue} = event
 
     let lineupList =() =>  {
         if (lineup) return lineup.join('/ ')
@@ -19,7 +19,7 @@ function EventIndexItem({event}){
                         promoters
                     </div>
                     <div>
-                        <i className="fa-solid fa-location-dot red-text"></i><span className="white-text">venue name</span>
+                        <i className="fa-solid fa-location-dot red-text"></i><span className="white-text">{venue}</span>
                         <i className="fa-solid fa-ticket dark-text"></i><span className="dark-text">RA Tickets</span>
                         <i className="fa-regular fa-user red-text"></i><span className="white-text">{ticketsSold}</span>
                     </div>

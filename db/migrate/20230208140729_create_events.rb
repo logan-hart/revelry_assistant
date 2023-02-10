@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.time :start_time, null: false
       t.time :end_time, null:false
       t.string :lineup, array:true
-      t.string :genres
+      t.string :genres, array:true
       t.string :details
       t.integer :cost, null:false
       t.integer :age_minimum, null:false
@@ -16,6 +16,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.string :media
       t.integer :available_tickets
       t.integer :tickets_sold, default: 0
+      t.string :venue, null:false
       t.references :promoter, foreign_key: {to_table: :users}
 
       t.timestamps

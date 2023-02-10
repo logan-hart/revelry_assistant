@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_185423) do
     t.time "start_time", null: false
     t.time "end_time", null: false
     t.string "lineup", array: true
-    t.string "genres"
+    t.string "genres", array: true
     t.string "details"
     t.integer "cost", null: false
     t.integer "age_minimum", null: false
@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_185423) do
     t.string "media"
     t.integer "available_tickets"
     t.integer "tickets_sold", default: 0
+    t.string "venue", null: false
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
