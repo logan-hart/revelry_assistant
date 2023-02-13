@@ -1,0 +1,60 @@
+.login-layout-1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 236px;
+    background-color: #131313;
+}
+
+.login-layout-2{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background: white;
+}
+
+.login-header{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 30px;
+
+}
+
+.login-content{
+    width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#login-page-right{
+    margin-right: 80px;
+}
+
+.login-content{
+    margin-top: 30px;
+    margin-bottom: 60px;
+
+}
+
+.login-page-input{
+    width: 250px;
+}
+
+#login-page-forgot-password{
+    font-size: 13px;
+    color: grey
+}
+
+#login-page-show-button{
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 72, 72);
+    font-size: xx-small;
+    margin-left: 158px;
+    cursor: pointer;
+}
+
+.login-page-label{
+    margin-bottom: 5px;
+}

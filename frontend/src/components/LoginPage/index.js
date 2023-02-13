@@ -4,11 +4,10 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './LoginModal.css'
+import './LoginPage.css'
 
-function LoginModal({open, onClose}) {
+function LoginPage() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +18,6 @@ function LoginModal({open, onClose}) {
         setShowPassword(showPassword ? false : true);
     };
 
-    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -52,17 +50,23 @@ function LoginModal({open, onClose}) {
         return dispatch(sessionActions.login({credential, password }))
     }
     
-    if (!open) return null
-    return ReactDom.createPortal(
+    
+    return (
         <>
-            <div id="modal-overlay"></div>
-            <button onClick={onClose} id="close-modal">&times;</button>
-            <div id="login-modal">
+            <div className='login-layout-1'>
+                <div className='container login-header-container'>
+                <div className="big-text white-text login-header">Login</div>
+                </div>
+            </div>
+
+            <div className='login-layout-2' >
+            <div className='container login-content'>
+                <div>
                 <form onSubmit={handleSubmit}>
-                    <div><h1 className='white-text'>Login to your account</h1></div>
-                    <label className="form-label white-text"> Username or email
+                    <div><h1 className='red-text'>/Your Details</h1></div>
+                    <label className="form-label login-page-label"> Username or email
                             <input
-                            className='login-form-input'
+                            className='form-input login-page-input'
                             type="text"
                             value={credential}
                             onChange={(e) => {
@@ -72,11 +76,11 @@ function LoginModal({open, onClose}) {
                     </label>
                     <br/>
                     <div>  
-                        <label className="form-label white-text"> Password</label>
-                            <button id="show-button" onClick={toggleShowPassword} >Show <i className="fa-regular fa-eye" style={{color: 'rgb(255, 72, 72)'}}></i></button>
+                        <label className="form-label login-page-label"> Password</label>
+                            <button id="login-page-show-button" onClick={toggleShowPassword} >Show <i className="fa-regular fa-eye" style={{color: 'rgb(255, 72, 72)'}}></i></button>
                             </div>  
                             <input
-                                className="login-form-input"
+                                className="form-input login-page-input"
                                 type={showPassword ? "text" : "password"}
                                 value={password}
                                 onChange={(e) => {
@@ -85,24 +89,26 @@ function LoginModal({open, onClose}) {
                             />
                     <br/>
                     <button className="button red-button" id="login" type="Submit">Login</button>
-                    <Link to="/" onClick={onClose}><button id="forgot-password">Forgot your password?</button></Link>
+                    <Link to="/" ><button id="login-page-forgot-password">Forgot your password?</button></Link>
                     <div className="login-errors red-text">{errorsDisplay()}</div>
                 </form>
+                </div>
                 <br/>
-                <div className='vl'></div>
-                <div id="login-right">
-                    <div><h1 className='white-text'>New to RA? Sign up</h1></div>
-                    <br/>
-                    <Link className="link" to='/signup'><button className="button black-button" onClick ={onClose}>Register</button></Link>
-                    <br/>
-                    <button className="button red-button" id="demo-login" onClick={() => {
-                        onClose() 
-                        demoLogin()}}>Demo Login</button>
+
+                    <div id="login-page-right">
+                        <div><h1>New to RA? Sign up</h1></div>
+                        <br/>
+                        <Link className="link" to='/signup'><button className="button white-button">Register</button></Link>
+                        <br/>
+                        <button className="button red-button" id="demo-login" onClick={() => {demoLogin()}}>Demo Login</button>
+                    </div>
+
+
                 </div>
             </div>
-        </>,
-        document.getElementById('portal')
-    );
+
+        </>
+    )
 }
 
-export default LoginModal;
+export default LoginPage

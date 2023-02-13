@@ -9,20 +9,25 @@ function EventShow (){
     const dispatch = useDispatch()
     const {eventId} = useParams()
     const event = useSelector(getEvent(eventId))
-    // const {name, lineup, startDate, photoUrl, ticketsSold, venue} = event
-    const {photoUrl} = event
-
+    
     useEffect(() => {
         dispatch(fetchEvent(eventId))
     }, [dispatch, eventId])
+    // const {name, lineup, startDate, photoUrl, ticketsSold, venue} = event
+    
+    // let lineupList =() =>  {
+    //     if (lineup) return lineup.join('/ ')
+    // } 
 
     return (
         <>
-        <div className='show-layout-1'>
+        {/* <div className='show-layout-1'>
             <div className="event-show-background"></div>
                 <div className='container show-container '>
                     
                     <div className="event-show-basic-info">
+                        <div> New York * </div>
+                        <div> {name}: {lineupList()}</div>
 
                     </div>
 
@@ -49,7 +54,7 @@ function EventShow (){
                 </div>
 
             </div>
-        </div>
+        </div> */}
 
         </>
     )

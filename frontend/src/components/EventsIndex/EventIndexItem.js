@@ -7,8 +7,6 @@ function EventIndexItem({event}){
         if (lineup) return lineup.join('/ ')
     } 
 
-
-
     return (
         <li>
             <div className='event-list-container'>
