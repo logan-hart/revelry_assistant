@@ -57,18 +57,19 @@ ApplicationRecord.transaction do
 
     )
 
-    10.times do 
+    20.times do 
       Event.create!({
         name: Faker::Company.name,
-        start_date: '2023-04-23',
+        start_date: Faker::Time.between(from: Time.now, to: Time.now + 1.month),
         end_date: '2023-04-23',
         start_time: '20:00',
         end_time: '24:00',
         cost: rand(25..100),
+        lineup: [(Faker::Hacker.verb).capitalize + " " + Faker::Name.first_name, (Faker::Hacker.verb).capitalize + " " + Faker::Name.first_name], 
         age_minimum: rand(18..21),
         promoter_id: rand(1..10),
         tickets_sold: rand(1..450),
-        venue: Faker::Address.city_suffix
+        venue: Faker::Address.city_suffix + " " + Faker::Hacker.noun
 
       }) 
     end

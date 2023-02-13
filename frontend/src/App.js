@@ -7,14 +7,15 @@ import Content from './components/Content';
 import EventsIndex from './components/EventsIndex';
 import Footer from './components/Footer';
 import UserModal from './components/UserModal';
+import EventShow from './components/EventShow';
 
 function App() {
   return (
     <>
       <NavBar/>
       <Switch>
-        <Route path='/events/:id'>
-          {/* <Event /> */}
+        <Route path='/events/:eventId'>
+          <EventShow />
         </Route>
         <Route path="/signup">
           <SignupForm />

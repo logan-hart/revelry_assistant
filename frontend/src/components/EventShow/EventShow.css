@@ -1,0 +1,27 @@
+.show-layout-1{
+    display: flex;
+    height: 800px;
+    justify-content: center
+}
+
+.event-show-background{
+    height: inherit;
+    width: inherit;
+    opacity: 70%;   
+    filter:blur(10px);
+    z-index: -1
+}
+
+.event-show-basic-info{
+    height: 50%;
+    width: 100%
+}
+
+.event-show-ticketing-info{
+    height:50%;
+    width: 100%;
+}
+.show-container{
+    display: flex;
+    flex-direction: column;
+}

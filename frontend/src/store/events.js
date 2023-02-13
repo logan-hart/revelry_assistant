@@ -23,10 +23,26 @@ export const getEvent = eventId => state =>{
     return state?.events ? state.events[eventId] : null;
 }
 
-// UPDATE GET POPULAR EVENTS SELECTOR
 
 export const getPopularEvents = state => {
-    return state?.events ? Object.values(state.events).slice(0,4) : []
+    if (state?.events) {
+        const obj = state?.events 
+        const sorted = Object.entries(obj).sort((a, b) => b[1].ticketsSold - a[1].ticketsSold);
+        const top4 = sorted.slice(0, 4).map(pair => pair[1])
+        return top4
+    }else{
+        return []
+    }
+}
+
+export const getEventsByDate = state => {
+    if (state?.events) {
+        const obj = state?.events 
+        const sorted = Object.entries(obj).sort((a, b) => b[1].startDate - a[1].startDate);
+        return sorted.map(pair => pair[1])
+    }else{
+        return []
+    }
 }
 
 export const getEvents = state => {
@@ -46,9 +62,10 @@ export const fetchEvent = eventId => async(dispatch) => {
     const response = await csrfFetch(`/api/events/${eventId}`)
 
     if (response.ok) {
-        const event = await response.json()
-        dispatch(receiveEvent(event))
-    }
+        const data = await response.json()
+        dispatch(receiveEvent(data.event))
+        return response
+    } 
 }
 
 export const createEvent = (event) => async dispatch => {

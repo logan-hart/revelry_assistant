@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getEvents, getPopularEvents, fetchEvents } from '../../store/events'
+import { getEvents, getEventsByDate, getPopularEvents, fetchEvents } from '../../store/events'
 import EventIndexItem from './EventIndexItem'
 import PopularEvent from './PopularEvent'
 
@@ -12,7 +12,7 @@ import './Events.css'
 
 function EventsIndex(){
     const dispatch = useDispatch()
-    const events = useSelector(getEvents)
+    const events = useSelector(getEventsByDate)
     const popularEvents = useSelector(getPopularEvents)
 
     useEffect(() => {

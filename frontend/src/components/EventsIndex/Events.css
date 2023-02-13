@@ -96,22 +96,28 @@
 .popular-img{
     height: 60%;
     background-color: blue;
+    margin-bottom: 10px;
 }
 
 .popular-date{
-    height: 10%;
+    height: auto;
+    font-size: 1.3em;
+    margin-bottom: 10px; 
 }
 
 .popular-title{
-    height: 10%;
+    height: auto;
+    font-size: 1.6em;
+    margin-bottom: 10px;
 }
 
 .popular-location{
-    height: 10%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .popular-attending{
-    height: 10%;
+    height: auto;
 }
 
 #small-event-poster{
@@ -123,4 +129,29 @@
 #large-event-poster{
     height: 100%;
     width: 100%;
+}
+
+.event-name{
+    font-size: 1.6em;
+    margin-bottom: 10px
+}
+
+.event-promoters{
+    font-size: 1.4em;
+    margin-bottom: 20px
+}
+
+.event-info-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.group{
+    display: flex
+
+}
+
+.event-spacer{
+    margin-left: 15px
 }
