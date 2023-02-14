@@ -1,0 +1,42 @@
+.event-create-layout{
+    background-color: rgb(255, 72, 72);
+    height: 275px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.event-create-container{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    flex-direction: column-reverse;
+}
+
+.create-body-layout{
+    background-color: white;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.create-nav{
+    height: fit-content;
+    border-right: 1px solid grey;
+    width: 12%;
+}
+
+.create-input{
+    width: 80%
+}
+
+.create-container{
+
+    justify-content: space-between;
+}
+
+.event-create-step{
+    padding-bottom: 10px;
+}
