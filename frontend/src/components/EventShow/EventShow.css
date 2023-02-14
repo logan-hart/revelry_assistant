@@ -9,9 +9,17 @@
 
 .show-layout-2{
     display: flex;
-    height: 340px;
+    height: auto;
     justify-content: center;
-    background-color: rgba(0,0,0,.5) ;
+    background-color: rgba(0,0,0,.7) ;
+}
+
+.show-layout-3{
+    display: flex;
+    height:auto;
+    justify-content: center;
+    background-color: black ;
+    padding-bottom: 90px;
 }
 .event-show-background{
     height: inherit;
@@ -27,8 +35,9 @@
 }
 
 .event-show-ticketing-info{
-    height:50%;
     width: 100%;
+    margin-top: 30px;
+    margin-bottom: 60px;
 }
 .show-container{
     display: flex;
@@ -48,8 +57,119 @@
     margin-top: 50px;
 }
 
-
-
 #event-show-interested{
     margin-top: 10px;
+}
+
+.event-show-divider{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.show-ticket-wrapper{
+    width: 60%;
+    margin-bottom: 30px
+}
+
+.ticket-grid{
+    display:flex;
+    justify-content: space-between;
+    color: white;
+    background-color: rgb(255, 72, 72);
+    padding: 10px;
+}
+
+.event-show-ticket-buttons{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: space-between;
+}
+
+.show-action-buy{
+    width: 60%;
+}
+
+.ticket-icon-spacer{
+    padding-right: 10px;
+}
+
+.show-ticket-wrapper{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.buy-tickets{
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+#buy-button:hover{
+    background-color: white;
+}
+
+.event-show-Poster{
+    height: auto;
+    width: 48%;
+    display: flex;
+    justify-content: center;
+}
+
+.details-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.details-divider{
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-show-info{
+    width: 48%;
+}
+
+#event-large-poster{
+    height: 500px;
+}
+
+.genre-tag{
+    border: 2px solid rgb(255, 72, 72);
+    width: fit-content;
+    background-color: transparent;
+    color: white;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.genre-container{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.details-header{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.details-lineup{
+    margin-bottom: 40px;
+}
+
+.circular-button{
+    cursor: pointer;
+    border-radius: 20px;
+    border-style: solid;
+    font-family: AlternateGothicProCyrillic, sans-serif;
+    font-size: 20px;
+    line-height: 12px;
+    border-width: 2px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-bottom: 4px;
+    height: 36px;
 }

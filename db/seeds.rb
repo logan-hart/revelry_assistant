@@ -49,11 +49,13 @@ ApplicationRecord.transaction do
       start_time: '20:00',
       end_time: '24:00',
       cost: 50,
+      genres: ['House', 'Techno'],
       age_minimum: 21,
       promoter_id: 1,
       lineup: ['Disclosure', 'Odesza', 'Martin Garix', 'Oliver Heldens'],
       tickets_sold: 450,
-      venue: 'Basement'
+      venue: 'Basement',
+      details: "Battle Hymn is happening on a special Holiday Weekend again!!!  Sunday, February 19th, 2023! /n  With Grammy award winner HEX HECTOR and Battle Hymn family MICHAEL MAGNAN!  Like all holiday Battles, this will be a busy one so make sure to come early and stay late!  ------------------------------------------------------------------------------------------ This event is 21+  *Early entry tickets are valid for 9-10 pm entry. After 10 pm entry will only be permitted if capacity allows. The difference of door price applies."
 
     )
 
