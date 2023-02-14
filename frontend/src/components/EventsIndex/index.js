@@ -14,10 +14,15 @@ function EventsIndex(){
     const dispatch = useDispatch()
     const events = useSelector(getEventsByDate)
     const popularEvents = useSelector(getPopularEvents)
+    const sessionUser = useSelector(state => state.session.user)
 
     useEffect(() => {
         dispatch(fetchEvents())
     },[dispatch])
+
+    function submitLink() {
+       return sessionUser ? "/events/create" : "/login"
+    }
 
     return(
         <>
@@ -37,7 +42,7 @@ function EventsIndex(){
                 <div className='container' id="event-container">
                     <div className='popular-header'>
                         <h1 className="red-text">/ Popular</h1>
-                        <Link  to="/events/create"><button className="button transparent-button">Submit event</button></Link>
+                        <Link to={submitLink()}><button className="button transparent-button">Submit event</button></Link>
                     </div>
                     <div className ="popular-events">
                         {popularEvents.map((popEvent) =>(

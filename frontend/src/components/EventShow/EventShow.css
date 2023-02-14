@@ -3,7 +3,7 @@
     height: 280px;
     justify-content: center;
     flex-direction: column;
-    background-color: rgba(0,0,0,.2) ;
+    background-color: rgba(0,0,0,.6) ;
     color: white
 }
 
@@ -11,7 +11,7 @@
     display: flex;
     height: auto;
     justify-content: center;
-    background-color: rgba(0,0,0,.7) ;
+    background-color: rgba(0,0,0,.8) ;
 }
 
 .show-layout-3{
@@ -55,6 +55,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #event-show-interested{
@@ -110,6 +111,7 @@
 
 #buy-button:hover{
     background-color: white;
+    border-color: white;
 }
 
 .event-show-Poster{
@@ -172,4 +174,12 @@
     padding-right: 11px;
     padding-bottom: 4px;
     height: 36px;
+}
+
+.event-show-background-image{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: blur(16px);
 }

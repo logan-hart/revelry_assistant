@@ -9,9 +9,9 @@ div.portal{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50% );
-    
     background-color: black;
-    z-index: 100
+    z-index: 100;
+    pointer-events: none;
 }
 
 #modal-overlay {
@@ -22,7 +22,8 @@ div.portal{
     bottom: 0;
     height: inherit;
     background-color: black;
-    z-index: 100
+    z-index: 100;
+    pointer-events: none;
 }
 
 button#show-button{

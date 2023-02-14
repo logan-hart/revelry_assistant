@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 function EventIndexItem({event}){
-    const {id, name, lineup, startDate, photoUrl, ticketsSold, venue} = event
+    const {id, name, lineup, startDate, images, ticketsSold, venue} = event
 
     let lineupList =() =>  {
         if (lineup) return lineup.join(' / ')
@@ -12,7 +12,7 @@ function EventIndexItem({event}){
             <div className='event-list-container'>
                 <Link to={`/events/${id}`}>
                     <div className='img-div'>
-                        <img id="small-event-poster"src={photoUrl}/>
+                        <img id="small-event-poster"src={images}/>
                     </div>
                 </Link>
                 <div className='info-div'>

@@ -3,7 +3,7 @@ import { useState } from "react"
 function TicketingInfo({event}){ 
     const [ticketNum, setTicketNum] = useState(1)
     let availableTickets = event.availableTickets
-    availableTickets ||= 10
+    availableTickets ||= 6
 
     function formatCost(cost) {
         return '$' +`${cost * ticketNum}` + '.00'
@@ -27,14 +27,14 @@ function TicketingInfo({event}){
                 <div className="medium-text red-text">/ RA TICKETS</div>
                 <div className="show-ticket-wrapper">
                     <div className="event-show-divider">
-                        <div className="form-label">Tickets including RA fee <span> (?) </span></div>  
-                        <div className='form-label'>USD</div>
+                        <div className="form-label dark-text">Tickets including RA fee <span> (?) </span></div>  
+                        <div className='form-label dark-text'>USD</div>
                     </div>
                     <div className="ticket-grid">
                         <div>EarlyBird</div>
                         <div>{formatCost(event.cost)}</div>
                     </div>
-                    <div className='form-label event-show-divider'>Ticket sales end on (End Sales Date)</div>
+                    <div className='form-label dark-text event-show-divider'>Ticket sales end on (End Sales Date)</div>
 
 
                 </div>

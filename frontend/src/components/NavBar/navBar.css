@@ -1,6 +1,7 @@
 #nav-layout{
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 
 .nav-container {

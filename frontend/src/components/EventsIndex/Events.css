@@ -80,6 +80,10 @@
     
 }
 
+.mid-grey-text{
+    color: #7d7d7d;
+}
+
 .popular-events{
     display: flex;
     justify-content: space-between;

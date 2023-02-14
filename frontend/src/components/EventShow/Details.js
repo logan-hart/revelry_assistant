@@ -1,6 +1,5 @@
 function Details(props) {
 
-
     return (
         <>
             <div className='container details-container'>
@@ -26,9 +25,15 @@ function Details(props) {
                             <div>
                                 <div className="white-text">{props.event.details}</div>
                             </div>
+                            <div className="form-label dark-text">Event Admin
+                                <div></div>
+                            </div>
+                            <div className="form-label dark-text">Min. age
+                                <div className="white-text">{props.event.ageMinimum + "+"} </div>
+                            </div>
                     </div>
                     <div className="event-show-Poster">
-                        <img id="event-large-poster" src={props.event.photoUrl}/>
+                        <img id="event-large-poster" src={props.event.images}/>
                     </div>
                 </div>
 
