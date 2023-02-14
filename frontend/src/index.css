@@ -15,9 +15,9 @@ li {
     height: inherit;
 }
 
-div{
+/* div{
     border: 1px solid red;
-}
+} */
 
 h1{
     font-size: xx-large;
@@ -42,6 +42,10 @@ p {
 
 .big-text{
     font-size: 5em;
+}
+
+.medium-text {
+    font-size: 2em;
 }
 .container {
     width: 1180px;
@@ -101,6 +105,17 @@ button > span {
     background-color: #666666;
     border-color: #666666;
     color: black
+}
+
+.transparent-button{
+    background-color: transparent;
+    border-color: rgb(255, 72, 72);
+    color: white;
+}
+
+.transparent-button:hover{
+    background-color: rgb(255, 72, 72);
+
 }
 
 .white-button{

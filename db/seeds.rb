@@ -69,8 +69,7 @@ ApplicationRecord.transaction do
         age_minimum: rand(18..21),
         promoter_id: rand(1..10),
         tickets_sold: rand(1..450),
-        venue: Faker::Address.city_suffix + " " + Faker::Hacker.noun
-
+        venue: (Faker::Address.city_suffix).capitalize + " " + (Faker::Hacker.noun).capitalize
       }) 
     end
   

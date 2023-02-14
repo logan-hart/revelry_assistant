@@ -7,14 +7,21 @@ import Content from './components/Content';
 import EventsIndex from './components/EventsIndex';
 import Footer from './components/Footer';
 import EventShow from './components/EventShow';
+import EventCreate from './components/EventCreate';
 
 function App() {
   return (
     <>
       <NavBar/>
       <Switch>
+        <Route path='/events/create'>
+          <EventCreate />
+        </Route>
         <Route path='/events/:eventId'>
           <EventShow />
+        </Route>
+        <Route path='/events'>
+          <Content/>
         </Route>
         <Route path="/signup">
           <SignupForm />

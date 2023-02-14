@@ -59,8 +59,6 @@
 .img-div{
     height: 146px;
     width: 260px;
-    background-color: blue;
-
 }
 
 .info-div{
@@ -95,7 +93,6 @@
 
 .popular-img{
     height: 60%;
-    background-color: blue;
     margin-bottom: 10px;
 }
 

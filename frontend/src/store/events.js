@@ -20,6 +20,7 @@ const removeEvent = (eventId) => ({
 })
 
 export const getEvent = eventId => state =>{
+
     return state?.events ? state.events[eventId] : null;
 }
 

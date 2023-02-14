@@ -1,6 +1,48 @@
 .footer-layout {
     display: flex;
     justify-content: center;
-    height: 515px;
+    height: 475px;
     background-color: black
+}
+
+.footer-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.footer-fifth{
+    height: 20%;
+}
+
+.footer-divider{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-row{
+    display: flex;
+
+}
+.first{
+    padding-top: 20px;
+}
+
+.fourth{
+    align-items: flex-end;
+    margin-bottom: 10px;
+    height: 18%;
+}
+
+.fifth{
+    border-top: 1px solid grey;
+    padding-top: 10px
+}
+
+.footer-promoter{
+    margin-bottom: 15px;
+}
+
+.footer-details-spacer{
+    margin-left: 15px;
 }

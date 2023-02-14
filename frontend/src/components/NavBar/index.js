@@ -24,7 +24,7 @@ function NavBar() {
                     <NavLink id="event-link" className="link nav-link" to="/events"><i id="Search" className="fa-solid fa-magnifying-glass"></i></NavLink>
                 </div>
                 <div id="right-nav">
-                    <button id="profile" className="nav-link" onClick={() => sessionUser ? setUserModalOpen(true) : setLoginModalOpen(true)}><i className="fa-regular fa-user"> </i> {account}</button>
+                    <button id="profile" className="nav-link link" onClick={() => sessionUser ? setUserModalOpen(true) : setLoginModalOpen(true)}><i className="fa-regular fa-user"> </i> {account}</button>
                     <LoginModal open={loginModalOpen} onClose={()=> setLoginModalOpen(false)}></LoginModal>
                     <UserModal open={userModalOpen} onClose={()=> setUserModalOpen(false)}></UserModal>
                     <NavLink to="/events"><i id="menu-bars" className="fa-solid fa-bars"></i></NavLink>

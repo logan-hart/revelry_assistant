@@ -16,7 +16,7 @@ function UserModal({open, onClose}) {
     if (!open) return null
     return ReactDom.createPortal (
         <>
-            <div id="modal-overlay"></div>
+            <div id="user-modal-overlay"></div>
             <button onClick={onClose} id="close-modal">&times;</button>
 
             <div>

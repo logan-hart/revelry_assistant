@@ -1,9 +1,18 @@
 .show-layout-1{
     display: flex;
-    height: 800px;
-    justify-content: center
+    height: 280px;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0,0,0,.2) ;
+    color: white
 }
 
+.show-layout-2{
+    display: flex;
+    height: 340px;
+    justify-content: center;
+    background-color: rgba(0,0,0,.5) ;
+}
 .event-show-background{
     height: inherit;
     width: inherit;
@@ -24,4 +33,23 @@
 .show-container{
     display: flex;
     flex-direction: column;
+    align-self: center;
+    height: 200%;
+}
+
+#event-show-small-flag-icon{
+    height: 12px;
+
+}
+
+.event-show-details-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+
+
+#event-show-interested{
+    margin-top: 10px;
 }

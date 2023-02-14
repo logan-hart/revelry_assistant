@@ -4,7 +4,7 @@ function EventIndexItem({event}){
     const {id, name, lineup, startDate, photoUrl, ticketsSold, venue} = event
 
     let lineupList =() =>  {
-        if (lineup) return lineup.join('/ ')
+        if (lineup) return lineup.join(' / ')
     } 
 
     return (

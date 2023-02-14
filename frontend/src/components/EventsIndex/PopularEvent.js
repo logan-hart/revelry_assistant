@@ -4,7 +4,7 @@ function PopularEvent({popEvent}) {
     const {id, name, lineup, startDate, photoUrl, ticketsSold, venue} = popEvent
     
     let lineupList =() =>  {
-        if (lineup) return lineup.join('/ ')
+        if (lineup) return lineup.join(' / ')
     } 
       
 

@@ -37,7 +37,7 @@ function EventsIndex(){
                 <div className='container' id="event-container">
                     <div className='popular-header'>
                         <h1 className="red-text">/ Popular</h1>
-                        <Link  to="/events"><button className="button black-button" id="event-submit">Submit event</button></Link>
+                        <Link  to="/events/create"><button className="button transparent-button">Submit event</button></Link>
                     </div>
                     <div className ="popular-events">
                         {popularEvents.map((popEvent) =>(
