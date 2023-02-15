@@ -1,10 +1,10 @@
-function CreateNext () {
+function CreateNext ({onClick}) {
 
     return (
         <>
-            <div className="big-text">
-                Next Button
-            </div>
+            <button className="button red-button" onClick={onClick}>
+                Next
+            </button>
         </>
     )
 }

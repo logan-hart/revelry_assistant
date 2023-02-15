@@ -1,10 +1,10 @@
-function CreateBack () {
+function CreateBack ({onClick}) {
 
     return (
         <>
-            <div className="big-text">
-                BackButton
-            </div>
+            <button className="button white-button" onClick={onClick}>
+                Back
+            </button>
         </>
     )
 }

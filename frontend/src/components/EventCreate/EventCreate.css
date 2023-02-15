@@ -15,7 +15,7 @@
 
 .create-body-layout{
     background-color: white;
-    height: 600px;
+    height: fit-content;
     display: flex;
     justify-content: center;
     margin-top: 30px;
@@ -29,7 +29,8 @@
 }
 
 .create-input{
-    width: 80%
+    width: 50%;
+    margin-right: 300px;
 }
 
 .create-container{
@@ -39,4 +40,50 @@
 
 .event-create-step{
     padding-bottom: 10px;
+}
+
+.create-buttons{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid grey;
+    padding-top: 20px;
+
+}
+
+.right-button-spacer{
+    margin-left: 20px;
+}
+
+.step{
+    margin-bottom: 60px;
+
+}
+
+.step-divider{
+    display:flex;
+    justify-content: space-between
+
+}
+
+.half-input{
+    width: 48%;
+}
+
+.full-input{
+    width: 100%;
+}
+
+textarea{
+    border-radius: 20px;
+    background-color: #F2F2F2;
+    border: none;
+    height: 16vh;
+}
+
+.create-subheader{
+    margin-bottom: 30px;
+}
+
+.create-category{
+    margin-bottom: 60px;
 }

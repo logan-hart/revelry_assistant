@@ -1,9 +1,51 @@
-function CreateStep4 () {
+function CreateStep4 ({promoter, setPromoter, images, setImages, links, setLinks, media, setMedia}) {
 
     return (
         <>
-            <div className="big-text">
-                Step 1
+            <div>
+                <div className="create-category">
+                    <div className="red-text medium-text create-subheader"> / PROMOTERS</div>
+                    <div>
+
+                        <textarea className="full-input" onChange={(e)=> setPromoter(e.target.value) } value={promoter}></textarea>
+                        <div className='form-label'>possible errors {promoter}</div>
+                    </div>
+                </div>
+                <div className="create-category">
+                    <div className="red-text medium-text create-subheader"> / IMAGES</div>
+                    <div>                    
+                        <div className='form-label'> Flyer Image</div>
+                        <input className='form-input full-input' onChange={(e)=> setImages(e.target.value) } value={images}></input>
+                        <div className='form-label'>possible errors {images}</div>
+                        <div className='form-label'> Flyer back url</div>
+                        <input className='form-input full-input' onChange={(e)=> setImages(e.target.value)} value={images}></input>
+                        <div className='form-label'>possible errors {images}</div>
+                    </div>
+                </div>
+                <div className="create-category">
+                    <div className="red-text medium-text create-subheader"> / PROMOTIONAL LINKS</div>
+                    <div className="step-divider">      
+                        <div className="half-input">
+                            <div className='form-label'>Website name</div>
+                            <input className='form-input full-input' onChange={(e)=> setLinks(e.target.value) } value={links}></input>
+                            <div className='form-label errors'>possible errors {links}</div>
+                        </div>  
+                        <div className="half-input">
+                            <div className='form-label'>Website URL</div>
+                            <input className='form-input full-input' onChange={(e)=> setLinks(e.target.value) } value={links}></input>
+                            <div className='form-label errors'>possible errors {links}</div>
+                        </div>            
+                    </div>
+                </div>
+                <div>
+                    <div className="red-text medium-text create-subheader"> / Media</div>
+                    <div>
+                        <div className='form-label'>Add SoundCloud or YouTube media links to embed them on your event page.</div>
+                        <div className='form-label'>Media Links</div>
+                        <input className='form-input full-input' onChange={(e)=> setMedia(e.target.value) } value={media}></input>
+                        <div className='form-label errors'>possible errors {media}</div>
+                    </div>
+                </div>
             </div>
         </>
     )

@@ -1,10 +1,10 @@
-function CreateSubmit () {
+function CreateSubmit ({onClick}) {
 
     return (
         <>
-            <div className="big-text">
-                Submit Button
-            </div>
+            <button onClick={onClick} className="button red-button">
+                Submit
+            </button>
         </>
     )
 }

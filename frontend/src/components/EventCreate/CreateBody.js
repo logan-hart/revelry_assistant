@@ -18,8 +18,8 @@ function CreateBody() {
     const [lineup, setLineup] = useState([])
     const [genres, setGenres] = useState([])
     const [details, setDetails] = useState('')
-    const [cost, setCost] = useState(0)
-    const [ageMinimum, setAgeMinimum] = useState(18)
+    const [cost, setCost] = useState('')
+    const [ageMinimum, setAgeMinimum] = useState('')
     const [promoter, setPromoter] = useState('')
     const [images, setImages] = useState('')
     const [links, setLinks] = useState('')
@@ -27,67 +27,81 @@ function CreateBody() {
 
 
     function handleNextStep(e) {
+        e.preventDefault()
         if(step < 4){
             setStep(prevStep => prevStep +1)
         }
     }
 
     function handleBack(e) {
+        e.preventDefault()
         if (step > 1){
-            setStep(prevStep = prevStep - 1)
+            setStep(prevStep => prevStep - 1)
         }
     }
 
-    function renderStep() {
+    function renderStep(step) {
         switch (step) {
-            case (step === 1):
-                <CreateStep1 />;
-            case (step === 2):
-                <CreateStep2 />;
-            case (step === 3):
-                <CreateStep3 />;
-            case (step === 4):
-                <CreateStep4 />;
+            case 1:
+                return <CreateStep1 name={name} setName={setName} venue={venue} setVenue={setVenue}/>;
+            case 2:
+                return <CreateStep2 lineup={lineup} setLineup={setLineup} genres={genres} setGenres={setGenres}/>;
+            case 3:
+                return <CreateStep3 details={details} setDetails={setDetails} cost={cost} setCost={setCost} ageMinimum={ageMinimum} setAgeMinimum={setAgeMinimum}/>;
+            case 4:
+                return <CreateStep4 promoter={promoter} setPromoter={setPromoter} images={images} setImages={setImages} links={links} setLinks={setLinks} media={media} setMedia={setMedia}/>;
         }
     }
 
-    function renderButtons() {
+    function renderButtons(step) {
         switch (step){
-            case (step === 1):
+            case 1:
                 return (
                     <>
                         <div>
-                            <CreateNext />
+                            <CreateNext onClick={handleNextStep} />
                         </div>
                     </>
                 );
-            case (step === 2 || step === 3):
+            case 2:
                 return(
                     <>
                         <div>
-                            <CreateBack />  
+                            <CreateBack onClick={handleBack}/>  
                         </div>
-                        <div>
-                            <CreateNext />
+                        <div className="right-button-spacer">
+                            <CreateNext onClick={handleNextStep}/>
                         </div>
                     </>
                 );
-            case (step === 4):
+            case 3:
+                return(
+                    <>
+                        <div>
+                            <CreateBack onClick={handleBack}/>  
+                        </div>
+                        <div className="right-button-spacer">
+                            <CreateNext onClick={handleNextStep}/>
+                        </div>
+                    </>
+                );
+            case 4:
                 return (
                     <>
                         <div>
-                            <CreateBack /> 
+                            <CreateBack onClick={handleBack}/> 
                         </div>
-                        <div>
-                            <CreateSubmit/>
+                        <div className="right-button-spacer">
+                            <CreateSubmit onClick={handleSubmit}/>
                         </div>
                     </>
                 );
         }
     }
 
-    function handleSubmit(){
-
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log('submission details')
     }
 
     return (
@@ -95,20 +109,19 @@ function CreateBody() {
             <div className="create-body-layout">
                 <div className='container create-container'>
                     <div className='create-nav'>
-                        <div className='event-create-step'><span><i className="fa-solid fa-1 link"></i></span>Basic</div>
-                        <div className='event-create-step'><span><i className="fa-solid fa-2 link"></i></span>Lineup</div>
-                        <div className='event-create-step'><span><i className="fa-solid fa-3 link"></i></span>Details</div>
-                        <div ><span><i className="fa-solid fa-4"></i></span>Promotional</div>
+                        <button onClick={(e) => setStep(1) }><div className='event-create-step link'><span><i className="fa-solid fa-1"></i></span>Basic</div></button>
+                        <button onClick={(e) => setStep(2) }><div className='event-create-step link'><span><i className="fa-solid fa-2"></i></span>Lineup</div></button>
+                        <button onClick={(e) => setStep(3) }><div className='event-create-step link'><span><i className="fa-solid fa-3"></i></span>Details</div></button>
+                        <button onClick={(e) => setStep(4) }><div className='link'><span><i className="fa-solid fa-4"></i></span>Promotional</div></button>
                     </div>
                     <div className='create-input'>
-                        <form onSubmit={handleSubmit()}>
-                            <div>
-                                {renderStep()}
+                        <form>
+                            <div className="step">
+                                {renderStep(step)}
                             </div>
-
                             <div>
                                 <div className="create-buttons">
-                                    {renderButtons}
+                                    {renderButtons(step)}
                                 </div>
                             </div>
                         </form>
