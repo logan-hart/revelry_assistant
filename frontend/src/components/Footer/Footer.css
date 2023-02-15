@@ -2,12 +2,15 @@
     display: flex;
     justify-content: center;
     height: 475px;
-    background-color: black
+    background-color: black;
+    position:relative;
+    z-index: 1;
 }
 
 .footer-container {
     display:flex;
     flex-direction: column;
+
 }
 
 .footer-fifth{

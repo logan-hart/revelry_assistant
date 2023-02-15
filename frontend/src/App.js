@@ -8,6 +8,7 @@ import EventsIndex from './components/EventsIndex';
 import Footer from './components/Footer';
 import EventShow from './components/EventShow';
 import EventCreate from './components/EventCreate';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <EventShow />
         </Route>
         <Route path='/events'>
-          <Content/>
+          <EventsIndex />
         </Route>
         <Route path="/signup">
           <SignupForm />
@@ -30,7 +31,7 @@ function App() {
           <LoginPage/>
         </Route>
         <Route path="/">
-          <EventsIndex />
+          <LandingPage />
         </Route>
       </Switch>
       <Footer />
