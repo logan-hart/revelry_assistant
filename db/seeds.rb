@@ -42,6 +42,7 @@ ApplicationRecord.transaction do
     end
 
     puts "Creating events..."
+
     Event.create!(
       name: 'Demo Event',
       start_date: '2023-04-23',
@@ -107,6 +108,23 @@ ApplicationRecord.transaction do
         details: 'None'
       }) 
     end
+
+    puts "Creating tickets..."
+    
+    Ticket.create!(
+      user_id: 1,
+      event_id: 1,
+      num_tickets: 4
+    )
+
+    40.times do 
+      Ticket.create!({
+        user_id: rand(1...User.all.length),
+        event_id: rand(1...Event.all.length),
+        num_tickets: rand(1...6)
+      })
+    end
+
   
     puts "Done!"
   end
