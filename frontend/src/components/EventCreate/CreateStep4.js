@@ -8,7 +8,7 @@ function CreateStep4 ({promoter, setPromoter, images, setImages, links, setLinks
                     <div>
 
                         <textarea className="full-input" onChange={(e)=> setPromoter(e.target.value) } value={promoter}></textarea>
-                        <div className='form-label'>possible errors {promoter}</div>
+                        <div className='form-label errors'>possible errors {promoter}</div>
                     </div>
                 </div>
                 <div className="create-category">
@@ -16,10 +16,10 @@ function CreateStep4 ({promoter, setPromoter, images, setImages, links, setLinks
                     <div>                    
                         <div className='form-label'> Flyer Image</div>
                         <input className='form-input full-input' onChange={(e)=> setImages(e.target.value) } value={images}></input>
-                        <div className='form-label'>possible errors {images}</div>
+                        <div className='form-label errors'>possible errors {images}</div>
                         <div className='form-label'> Flyer back url</div>
                         <input className='form-input full-input' onChange={(e)=> setImages(e.target.value)} value={images}></input>
-                        <div className='form-label'>possible errors {images}</div>
+                        <div className='form-label errors'>possible errors {images}</div>
                     </div>
                 </div>
                 <div className="create-category">

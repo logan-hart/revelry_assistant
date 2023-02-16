@@ -89,14 +89,6 @@
     margin-right: 15px;
 }
 
-#gender-dropdown{
-    border: none;
-    background-color: #F2F2F2;
-    border-radius: 20px;
-    height: 36px;
-    width: 186.4px
-}
-
 .login-section{
     width: 123%;
     display: flex;

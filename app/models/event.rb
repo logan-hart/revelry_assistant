@@ -3,6 +3,7 @@ class Event < ApplicationRecord
     #validations for start and end date/time here
 
     belongs_to :user, foreign_key: :promoter_id, class_name: :User
+    has_many :tickets, foreign_key: :event_id, dependent: :destroy
 
     has_one_attached :photo
     

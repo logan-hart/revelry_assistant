@@ -1,5 +1,7 @@
 function CreateStep2 ({lineup, setLineup, genres, setGenres}) {
 
+    const genreOptions = ['Acid', 'Afrobeat', 'Baile Funk', 'Bass', 'Breakcore', 'Club', 'Dancehall', 'Deep House', 'Dembow', 'Disco', 'Drum & Bass', 'Dub', 'Electro', 'Experimental', 'Funk/Soul', 'Hip-Hop', 'House', 'Italo Disco', 'Jungle', 'Latin Bass', 'Minimal', 'Neo Perreo', 'Pop', 'Progressive House', 'Reggaeton', 'R&B', 'Tech House', 'Techno', 'Trance']
+
     return (
         <>
             <div>
@@ -16,8 +18,16 @@ function CreateStep2 ({lineup, setLineup, genres, setGenres}) {
                     <div>                    
                         <div className='form-label'>Give attendees a flavour of the genres that will be played at the event.</div>
                         <div className='form-label'> Genres</div>
-                        <input className="form-input half-input" onChange={(e)=> setGenres(e.target.value) } value={genres}></input>
-                        <input className='form-input half-input'></input>
+                            <select id="genre-dropdown" onChange={(e) => setGenres(e.target.value)}>
+                                <option value={genres} className='dropdown'></option>
+                                    {genreOptions.map((genre) => <option key={genre} value={genre}>{genre}
+                                </option>)}
+                            </select>
+                            <select id="genre-dropdown" onChange={(e) => setGenres(e.target.value)}>
+                                <option value={genres} className='dropdown'></option>
+                                    {genreOptions.map((genre) => <option key={genre} value={genre}>{genre}
+                                </option>)}
+                            </select>
                         <div className='form-label errors'>possible errors {genres}</div>
                     </div>
                 </div>

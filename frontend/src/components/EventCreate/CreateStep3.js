@@ -1,5 +1,7 @@
 function CreateStep3 ({details, setDetails, cost, setCost, ageMinimum, setAgeMinimum}) {
 
+    const ageOptions = ['18+', '19+', '20+', '21+']
+
     return (
         <>
            <div>
@@ -21,7 +23,11 @@ function CreateStep3 ({details, setDetails, cost, setCost, ageMinimum, setAgeMin
                         </div>
                         <div>
                             <div className='form-label'> Age</div>
-                            <input className='form-input half-input' onChange={(e)=> setAgeMinimum(e.target.value) } value={ageMinimum}></input>
+                            <select id="age-dropdown" onChange={(e) => setAgeMinimum(e.target.value)}>
+                                <option value={ageMinimum} className='dropdown'></option>
+                                    {ageOptions.map((age) => <option key={age} value={age}>{age}
+                                </option>)}
+                            </select>
                             <div className='form-label errors'>possible errors {ageMinimum}</div>
                         </div>
                     </div>

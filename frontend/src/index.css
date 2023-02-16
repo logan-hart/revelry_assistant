@@ -39,6 +39,30 @@ p {
     word-wrap: normal;
 }
 
+textarea{
+    border-radius: 20px;
+    background-color: #F2F2F2;
+    border: none;
+    height: 16vh;
+    margin-bottom: 10px
+}
+
+select{
+    border: none;
+    margin-bottom: 10px;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    size: 4;
+    height: 36px;
+    width: 186.4px;
+    margin-right: 20px; 
+}
+
+select.selected{
+    background-color: #F2F2F2;
+
+}
+
 
 .big-text{
     font-size: 5em;

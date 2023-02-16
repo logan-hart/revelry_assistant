@@ -1,3 +1,4 @@
+import whitelogo from './whitelogo.png'
 import './Footer.css'
 
 function Footer() {
@@ -5,9 +6,9 @@ function Footer() {
         <div className="footer-layout">
             <div className="container footer-container white-text">
                 <div className="footer-fifth first">
-                    <div>(Large White icon)</div>
+                    <img className="footer-logo" src={whitelogo}/>
                 </div>
-                <div className="footer-fifth footer-divider " >
+                <div className="footer-fifth footer-divider" >
                     <div>
                         <div className="form-label dark-text">Discover</div>
                         <div className="footer-row medium-text">

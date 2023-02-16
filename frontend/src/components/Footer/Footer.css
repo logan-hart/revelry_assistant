@@ -28,7 +28,7 @@
 
 }
 .first{
-    padding-top: 20px;
+    margin-top: 40px;
 }
 
 .fourth{
@@ -48,4 +48,9 @@
 
 .footer-details-spacer{
     margin-left: 15px;
+}
+
+
+.footer-logo{
+    height: 50px
 }

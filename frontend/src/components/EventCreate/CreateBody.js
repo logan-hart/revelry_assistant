@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Dispatch } from "react"
 import CreateStep1 from "./CreateStep1"
 import CreateStep2 from "./CreateStep2"
 import CreateStep3 from "./CreateStep3"
@@ -6,14 +7,18 @@ import CreateStep4 from "./CreateStep4"
 import CreateNext from "./CreateNext"
 import CreateBack from "./CreateBack"
 import CreateSubmit from "./CreateSubmit"
+import { useDispatch } from "react-redux"
+import * as eventActions from "../../store/events";
 
 
 function CreateBody() {
+    const dispatch = useDispatch()
     const [step, setStep] = useState(1)
     const [name, setName] = useState('')
     const [startDate, setStartDate] = useState('')
-    const [starttime, setStartTime] = useState('')
+    const [startTime, setStartTime] = useState('')
     const [endDate, setEndDate] = useState('')
+    const [endTime, setEndTime] = useState('')
     const [venue, setVenue] = useState('')
     const [lineup, setLineup] = useState([])
     const [genres, setGenres] = useState([])
@@ -24,6 +29,7 @@ function CreateBody() {
     const [images, setImages] = useState('')
     const [links, setLinks] = useState('')
     const [media, setMedia] = useState('')
+    const [errors, setErrors] = useState([])
 
 
     function handleNextStep(e) {
@@ -101,7 +107,21 @@ function CreateBody() {
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log('submission details')
+
+        setErrors([]);
+          return dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+            .catch(async (res) => {
+            let data;
+            try {
+              data = await res.clone().json();
+            } catch {
+              data = await res.text();
+            }
+            
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+          });
     }
 
     return (
@@ -109,10 +129,10 @@ function CreateBody() {
             <div className="create-body-layout">
                 <div className='container create-container'>
                     <div className='create-nav'>
-                        <button onClick={(e) => setStep(1) }><div className='event-create-step link'><span><i className="fa-solid fa-1"></i></span>Basic</div></button>
-                        <button onClick={(e) => setStep(2) }><div className='event-create-step link'><span><i className="fa-solid fa-2"></i></span>Lineup</div></button>
-                        <button onClick={(e) => setStep(3) }><div className='event-create-step link'><span><i className="fa-solid fa-3"></i></span>Details</div></button>
-                        <button onClick={(e) => setStep(4) }><div className='link'><span><i className="fa-solid fa-4"></i></span>Promotional</div></button>
+                        <button onClick={(e) => setStep(1) }><div className='event-create-step link'><span><i className="fa-solid fa-1"></i></span> Basic</div></button>
+                        <button onClick={(e) => setStep(2) }><div className='event-create-step link'><span><i className="fa-solid fa-2"></i></span> Lineup</div></button>
+                        <button onClick={(e) => setStep(3) }><div className='event-create-step link'><span><i className="fa-solid fa-3"></i></span> Details</div></button>
+                        <button onClick={(e) => setStep(4) }><div className='link'><span><i className="fa-solid fa-4"></i></span> Promotional</div></button>
                     </div>
                     <div className='create-input'>
                         <form>
