@@ -1,10 +1,11 @@
-function CreateStep3 ({details, setDetails, cost, setCost, ageMinimum, setAgeMinimum}) {
+import React from 'react'
 
+export default function Step3({details, setDetails, cost, setCost, ageMinimum, setAgeMinimum}) {
     const ageOptions = ['18+', '19+', '20+', '21+']
 
     return (
-        <>
-           <div>
+    <div>
+      <div>
                 <div className="create-category">
                     <div className="red-text medium-text create-subheader"> / DETAILS</div>
                     <div>
@@ -33,8 +34,6 @@ function CreateStep3 ({details, setDetails, cost, setCost, ageMinimum, setAgeMin
                     </div>
                 </div>
             </div>
-        </>
-    )
+    </div>
+  )
 }
-
-export default CreateStep3

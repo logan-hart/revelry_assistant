@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { Dispatch } from "react"
-import CreateStep1 from "./CreateStep1"
-import CreateStep2 from "./CreateStep2"
-import CreateStep3 from "./CreateStep3"
-import CreateStep4 from "./CreateStep4"
-import CreateNext from "./CreateNext"
-import CreateBack from "./CreateBack"
-import CreateSubmit from "./CreateSubmit"
+import Step1 from "./Step1"
+import Step2 from "./Step2"
+import Step3 from "./Step3"
+import Step4 from "./Step4"
+import ButtonNext from "./ButtonNext"
+import ButtonBack from "./ButtonBack"
+import CreateSubmit from "./ButtonSubmit"
 import { useDispatch } from "react-redux"
 import * as eventActions from "../../store/events";
 
@@ -49,13 +49,13 @@ function CreateBody() {
     function renderStep(step) {
         switch (step) {
             case 1:
-                return <CreateStep1 name={name} setName={setName} venue={venue} setVenue={setVenue}/>;
+                return <Step1 name={name} setName={setName} venue={venue} setVenue={setVenue}/>;
             case 2:
-                return <CreateStep2 lineup={lineup} setLineup={setLineup} genres={genres} setGenres={setGenres}/>;
+                return <Step2 lineup={lineup} setLineup={setLineup} genres={genres} setGenres={setGenres}/>;
             case 3:
-                return <CreateStep3 details={details} setDetails={setDetails} cost={cost} setCost={setCost} ageMinimum={ageMinimum} setAgeMinimum={setAgeMinimum}/>;
+                return <Step3 details={details} setDetails={setDetails} cost={cost} setCost={setCost} ageMinimum={ageMinimum} setAgeMinimum={setAgeMinimum}/>;
             case 4:
-                return <CreateStep4 promoter={promoter} setPromoter={setPromoter} images={images} setImages={setImages} links={links} setLinks={setLinks} media={media} setMedia={setMedia}/>;
+                return <Step4 promoter={promoter} setPromoter={setPromoter} images={images} setImages={setImages} links={links} setLinks={setLinks} media={media} setMedia={setMedia}/>;
         }
     }
 
@@ -65,7 +65,7 @@ function CreateBody() {
                 return (
                     <>
                         <div>
-                            <CreateNext onClick={handleNextStep} />
+                            <ButtonNext onClick={handleNextStep} />
                         </div>
                     </>
                 );
@@ -73,10 +73,10 @@ function CreateBody() {
                 return(
                     <>
                         <div>
-                            <CreateBack onClick={handleBack}/>  
+                            <ButtonBack onClick={handleBack}/>  
                         </div>
                         <div className="right-button-spacer">
-                            <CreateNext onClick={handleNextStep}/>
+                            <ButtonNext onClick={handleNextStep}/>
                         </div>
                     </>
                 );
@@ -84,10 +84,10 @@ function CreateBody() {
                 return(
                     <>
                         <div>
-                            <CreateBack onClick={handleBack}/>  
+                            <ButtonBack onClick={handleBack}/>  
                         </div>
                         <div className="right-button-spacer">
-                            <CreateNext onClick={handleNextStep}/>
+                            <ButtonNext onClick={handleNextStep}/>
                         </div>
                     </>
                 );
@@ -95,7 +95,7 @@ function CreateBody() {
                 return (
                     <>
                         <div>
-                            <CreateBack onClick={handleBack}/> 
+                            <ButtonBack onClick={handleBack}/> 
                         </div>
                         <div className="right-button-spacer">
                             <CreateSubmit onClick={handleSubmit}/>

@@ -4,7 +4,13 @@ class Api::EventsController < ApplicationController
         before_action :require_logged_in, only: [:create, :update, :destroy]
 
         def index
-            @events = Event.all
+
+            if params['promoter_id']
+                @events = Event.where(promoter_id: params['promoter_id'])
+            else
+                @events = Event.all
+            end
+
         end
     
         def show
@@ -26,7 +32,8 @@ class Api::EventsController < ApplicationController
         end
     
         def destroy
-            @event = current_user.events.find(params[:id])
+            @event = Event.find(params[:id])
+
             unless @event
                 render json: { message: 'Unauthorized' }, status: :unauthorized
                 return

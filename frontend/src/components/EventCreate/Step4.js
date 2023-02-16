@@ -1,8 +1,10 @@
-function CreateStep4 ({promoter, setPromoter, images, setImages, links, setLinks, media, setMedia}) {
+import React from 'react'
 
-    return (
-        <>
-            <div>
+export default function Step4({promoter, setPromoter, images, setImages, links, setLinks, media, setMedia}) {
+
+  return (
+    <div>
+      <div>
                 <div className="create-category">
                     <div className="red-text medium-text create-subheader"> / PROMOTERS</div>
                     <div>
@@ -47,8 +49,6 @@ function CreateStep4 ({promoter, setPromoter, images, setImages, links, setLinks
                     </div>
                 </div>
             </div>
-        </>
-    )
+    </div>
+  )
 }
-
-export default CreateStep4

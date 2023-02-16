@@ -3,18 +3,26 @@ import { Route, Switch } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import SignupForm from './components/SignupForm';
 import NavBar from './components/NavBar';
-import Content from './components/Content';
+import Content from './components/Content/Content';
 import EventsIndex from './components/EventsIndex';
-import Footer from './components/Footer';
 import EventShow from './components/EventShow';
-import EventCreate from './components/EventCreate';
+import EventCreate from './components/EventCreate/EventCreate';
+import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
+import UserTickets from './components/UserTickets';
+import PromotedEvents from './components/PromotedEvents/PromotedEvents';
 
 function App() {
   return (
     <>
       <NavBar/>
       <Switch>
+        <Route path='/users/:userId/tickets'>
+          <UserTickets />
+        </Route>
+        <Route path='/users/:userId/events'>
+          <PromotedEvents />
+        </Route>
         <Route path='/events/create'>
           <EventCreate />
         </Route>

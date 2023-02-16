@@ -1,10 +1,12 @@
-function CreateStep2 ({lineup, setLineup, genres, setGenres}) {
+import React from 'react'
 
+export default function Step2({lineup, setLineup, genres, setGenres}) {
+    
     const genreOptions = ['Acid', 'Afrobeat', 'Baile Funk', 'Bass', 'Breakcore', 'Club', 'Dancehall', 'Deep House', 'Dembow', 'Disco', 'Drum & Bass', 'Dub', 'Electro', 'Experimental', 'Funk/Soul', 'Hip-Hop', 'House', 'Italo Disco', 'Jungle', 'Latin Bass', 'Minimal', 'Neo Perreo', 'Pop', 'Progressive House', 'Reggaeton', 'R&B', 'Tech House', 'Techno', 'Trance']
 
     return (
-        <>
-            <div>
+    <div>
+      <div>
                 <div className="create-category">
                     <div className="red-text medium-text create-subheader"> / LINEUP</div>
                     <div>
@@ -32,8 +34,6 @@ function CreateStep2 ({lineup, setLineup, genres, setGenres}) {
                     </div>
                 </div>
             </div>
-        </>
-    )
+    </div>
+  )
 }
-
-export default CreateStep2

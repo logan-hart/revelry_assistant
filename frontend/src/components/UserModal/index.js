@@ -10,6 +10,7 @@ function UserModal({open, onClose}) {
     const sessionUser = useSelector(state => state.session.user)
 
     const logout = () => {
+
         return dispatch(sessionActions.logout())
     }
     
@@ -22,7 +23,7 @@ function UserModal({open, onClose}) {
             <div>
                 <div id="user-modal">
                     <div className='white-text'>{sessionUser.username}</div>
-                    <Link className="link" onClick={() => {onClose()}} to='/events'>Promoted Events</Link>
+                    <Link className="link" onClick={() => {onClose()}} to={`/users/${sessionUser.id}/events`}>Promoted Events</Link>
                     <Link className="link" onClick={() => {onClose()}} to="/events">My tickets</Link>
                     <Link className="link" onClick={() => {onClose()}} to="/events">Following</Link>
                     <Link className="link" onClick={() => {onClose()}} to="/events">Edit Account</Link>

@@ -1,8 +1,9 @@
-function CreateStep1 ({name, setName, venue, setVenue}) {
+import React from 'react'
 
-    return (
-        <>
-            <div>
+export default function Step1({name, setName, venue, setVenue}) {
+  return (
+    <div>
+      <div>
                 <div className="create-category">
                     <div className="red-text medium-text create-subheader"> / BASIC</div>
                     <div>
@@ -51,8 +52,6 @@ function CreateStep1 ({name, setName, venue, setVenue}) {
 
                 </div>
             </div>
-        </>
-    )
+    </div>
+  )
 }
-
-export default CreateStep1

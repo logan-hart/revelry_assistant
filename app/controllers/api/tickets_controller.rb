@@ -3,14 +3,13 @@ class Api::TicketsController < ApplicationController
     before_action :require_logged_in
 
     def index
-
+        @events = Ticket.where(user_id: current_user.id)
     end
 
     def show
         if current_user
-            @ticets = current_user.
+            @tickets = Tickets.find(params[:id])
         end
-
     end
 
     def create

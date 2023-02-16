@@ -20,10 +20,8 @@ const removeEvent = (eventId) => ({
 })
 
 export const getEvent = eventId => state =>{
-
     return state?.events ? state.events[eventId] : null;
 }
-
 
 export const getPopularEvents = state => {
     if (state?.events) {
@@ -41,13 +39,24 @@ export const getEventsByDate = state => {
         const obj = state?.events 
         const sorted = Object.entries(obj).sort((a, b) => b[1].startDate - a[1].startDate);
         return sorted.map(pair => pair[1])
-    }else{
+    } else {
         return []
     }
 }
 
 export const getEvents = state => {
     return state?.events ? Object.values(state.events) : [];
+}
+
+
+export const fetchEvent = eventId => async(dispatch) => {
+    const response = await csrfFetch(`/api/events/${eventId}`)
+    
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(receiveEvent(data.event))
+        return response
+    } 
 }
 
 export const fetchEvents = () => async(dispatch) => {
@@ -59,14 +68,14 @@ export const fetchEvents = () => async(dispatch) => {
     }
 }
 
-export const fetchEvent = eventId => async(dispatch) => {
-    const response = await csrfFetch(`/api/events/${eventId}`)
+export const fetchPromotedEvents = (promoterId) => async(dispatch) =>{
+    const response = await csrfFetch(`/api/events/?promoterId=${promoterId}`)
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(receiveEvent(data.event))
-        return response
-    } 
+        dispatch(receiveEvents(data.events))
+    }
+
 }
 
 export const createEvent = (event) => async dispatch => {
