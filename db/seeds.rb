@@ -56,7 +56,18 @@ ApplicationRecord.transaction do
       lineup: ['Disclosure', 'Odesza', 'Martin Garix', 'Oliver Heldens'],
       tickets_sold: 450,
       venue: 'Basement',
-      details: "Battle Hymn is happening on a special Holiday Weekend again!!!  Sunday, February 19th, 2023! /n  With Grammy award winner HEX HECTOR and Battle Hymn family MICHAEL MAGNAN!  Like all holiday Battles, this will be a busy one so make sure to come early and stay late!  ------------------------------------------------------------------------------------------ This event is 21+  *Early entry tickets are valid for 9-10 pm entry. After 10 pm entry will only be permitted if capacity allows. The difference of door price applies.",
+      details: "Héctor Oaks\' résumé is one of the most impressive in techno today: a resident at the revered Bassiani as well as Berlin\'s best party, Herrensauna, label boss for the impeccable OAKS and KAOS labels and a master of the all-vinyl set. He\'s a rare DJ who can keep up with the old-school masters while sounding utterly current. His sets bristle and explode with the tight focus of purist techno, while also mixing moments of snickering flash that call back to \'90s rave. An unstoppably charismatic force in the booth, his set at last year\'s Wire Festival was a standout. Kyruh was another Wire highlight and has been a significant presence at BASEMENT over the last year and change. A true rising star on the decks, she lets it rip without hesitation, delivering a high velocity techno firestorm that refuses to relent. And the world has taken notice: Kyruh has been steadily working her way across North America and will be returning to Europe in the spring. Jek returns to the club for the third time in as many months. His sets bloom and glow with a warm energy, diving into flowy techno, breaks and basslines with a cool, decisive touch.
+      
+      ■ No photos or videos
+      ■ No phone use on the dancefloor
+      ■ The dance floor is for dancing, not conversation
+      ■ No glowing/flashing clothes or items
+      ■ Respect other people's space, no shuffling
+      ■ Consent is mandatory
+      ■ Zero tolerance for racism, homophobia, transphobia, sexism, ableism or any form of discrimination
+      ■ Take care of each other, alert our staff if somebody isn't feeling well
+      ■ Violating the house rules will result in removal
+      ■ Ticket purchase does not guarantee entrance",
       images: "https://imgproxy.ra.co/_/quality:66/w:1500/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vOWJhMTlmYjVjYjgyNTAxZTMxNTcwNTY5ZmIzYjFiN2RmN2Q2MTg2Yi5wbmc=",
     )
 

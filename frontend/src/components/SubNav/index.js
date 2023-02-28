@@ -7,10 +7,10 @@ function SubNav() {
     return (
         <>
             <div className="left-sub-nav">
-                <Link className="sub-nav-link white-text" to="/Events">Overview</Link>
-                <Link className="sub-nav-link white-text" to="/Events">Events</Link>
-                <Link className="sub-nav-link white-text" to="/Events">For you</Link>
-                <Link className="sub-nav-link white-text" to="/Events">Just announced</Link>
+                <Link className="sub-nav-link link white-text" to="/Events">Overview</Link>
+                <Link className="sub-nav-link link white-text" to="/Events">Events</Link>
+                <Link className="sub-nav-link link white-text" to="/Events">For you</Link>
+                <Link className="sub-nav-link link white-text" to="/Events">Just announced</Link>
 
 
             </div>

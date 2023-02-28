@@ -29,7 +29,7 @@ export const getPopularEvents = state => {
         const sorted = Object.entries(obj).sort((a, b) => b[1].ticketsSold - a[1].ticketsSold);
         const top4 = sorted.slice(0, 4).map(pair => pair[1])
         return top4
-    }else{
+    } else {
         return []
     }
 }
@@ -75,8 +75,18 @@ export const fetchPromotedEvents = (promoterId) => async(dispatch) =>{
         const data = await response.json()
         dispatch(receiveEvents(data.events))
     }
-
 }
+
+export const fetchTicketEvents = (promoterId) => async(dispatch) =>{
+    const response = await csrfFetch(`/api/events/?promoterId=${promoterId}`)
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(receiveEvents(data.events))
+    }
+}
+
+
 
 export const createEvent = (event) => async dispatch => {
     const response = await csrfFetch('/api/events/', {
@@ -131,7 +141,6 @@ export const eventsReducer = (state = {}, action) =>{
         default:
             return state
     }
-
 }
 
 export default eventsReducer

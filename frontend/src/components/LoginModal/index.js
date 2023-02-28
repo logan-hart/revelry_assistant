@@ -49,7 +49,7 @@ function LoginModal({open, onClose}) {
     const demoLogin = () =>{
         let credential = 'demo@user.com'
         let password = 'password'
-        return dispatch(sessionActions.login({credential, password }))
+        return dispatch(sessionActions.login({credential, password}))
     }
     
     if (!open) return null

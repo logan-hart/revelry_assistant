@@ -1,7 +1,12 @@
 import './LandingPage.css'
+import { useEffect } from 'react'
 
 function LandingPage() {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
+    
     return (
         <>
             <div className="full-page-image">

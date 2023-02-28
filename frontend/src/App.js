@@ -9,10 +9,13 @@ import EventShow from './components/EventShow';
 import EventCreate from './components/EventCreate/EventCreate';
 import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
-import UserTickets from './components/UserTickets';
+import UserTickets from './components/UserTickets/UserTickets';
 import PromotedEvents from './components/PromotedEvents/PromotedEvents';
+import BuyTickets from './components/BuyTickets/BuyTickets';
 
 function App() {
+  
+
   return (
     <>
       <NavBar/>
@@ -22,6 +25,9 @@ function App() {
         </Route>
         <Route path='/users/:userId/events'>
           <PromotedEvents />
+        </Route>
+        <Route path='/events/:eventId/buyTickets'>
+          <BuyTickets />
         </Route>
         <Route path='/events/create'>
           <EventCreate />
@@ -38,8 +44,11 @@ function App() {
         <Route path="/login">
           <LoginPage/>
         </Route>
+        <Route path="/welcome">
+          <LandingPage/>
+        </Route>
         <Route path="/">
-          <LandingPage />
+          <EventsIndex/>
         </Route>
       </Switch>
       <Footer />

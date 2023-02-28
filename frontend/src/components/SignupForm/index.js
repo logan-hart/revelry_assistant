@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 
@@ -28,6 +29,10 @@ const SignupForm = () => {
         e.preventDefault()
         setShowPassword(showPassword ? false : true);
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
 
     function getAge() {
         let today = new Date();
@@ -147,7 +152,7 @@ const SignupForm = () => {
                                                 <div className="stack">
                                                     <div>
                                                         <label className="form-label ">Password<span className="red-text">*</span></label>
-                                                        <button id="show-button" onClick={(e) => toggleShowPassword(e)}>Show <i className="fa-regular fa-eye red" ></i></button>
+                                                        <button id="show-button" tabindex="-1" onClick={(e) => toggleShowPassword(e)}>Show <i className="fa-regular fa-eye red" ></i></button>
                                                     </div>
                                                         <input
                                                             className="form-input"

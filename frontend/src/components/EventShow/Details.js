@@ -23,13 +23,19 @@ function Details(props) {
                 <div className="details-divider">
                     <div className="details-show-info">
                             <div>
-                                <div className="white-text">{props.event.details}</div>
+                                <div className="white-text"><p className="event-show-details">{props.event.details}</p></div>
                             </div>
-                            <div className="form-label dark-text">Event Admin
-                                <div></div>
+                            <div className="form-label dark-text event-show-double-spacer">
+                                <div className="event-show-spacer">Event Admin</div>
+                                <div className="white-text">Ron Like Hell</div>
                             </div>
-                            <div className="form-label dark-text">Min. age
+                            <div className="form-label dark-text event-show-double-spacer">
+                                <div className="event-show-spacer">Min. age</div>
                                 <div className="white-text">{props.event.ageMinimum + "+"} </div>
+                            </div>
+                            <div className="form-label dark-text event-show-double-spacer">
+                                <div className="event-show-spacer">Cost</div>
+                                <div className="white-text">{props.event.cost}</div>
                             </div>
                     </div>
                     <div className="event-show-Poster">

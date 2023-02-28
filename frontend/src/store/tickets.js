@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf";
 
-const ADD_TICKET = 'tickets/addTicket'
-const ADD_TICKETS = 'tickets/addTickets'
-const REMOVE_TICKET = 'tickets/removeTicket'
+const ADD_TICKET = './tickets/ADD_TICKET'
+const ADD_TICKETS = './tickets/ADD_TICKETS'
+const REMOVE_TICKET = './tickets/REMOVE_TICKET'
 
 export const addTicket = ticket => ({
     type: ADD_TICKET,
@@ -19,6 +19,10 @@ export const removeTicket = ticketId => ({
     ticketId
 })
 
+export const getTickets = state => {
+    return state?.tickets ? Object.values(state.tickets) : []
+}
+
 export const fetchTicket = (ticketId) => async(dispatch) =>{
     const response = await csrfFetch(`/api/tickets/${ticketId}`)
 
@@ -29,8 +33,8 @@ export const fetchTicket = (ticketId) => async(dispatch) =>{
     }
 }
 
-export const fetchTickets= () => async(dispatch) => {
-    const response = await csrfFetch(`/api/tickets/`)
+export const fetchUserTickets= (userId) => async(dispatch) => {
+    const response = await csrfFetch(`/api/tickets/?userId=${userId}`)
 
     if (response.ok) {
         const data = await response.json();
@@ -50,17 +54,15 @@ export const createTicket = (ticket) => async dispatch => {
 
 function ticketsReducer(state = {}, action) {
     switch(action.type){
-        case ADD_TICKET: {
+        case ADD_TICKET: 
             return {...state, [action.ticket.id]: action.ticket}
-        }
-        case ADD_TICKETS: {
+        case ADD_TICKETS: 
+
             return {...action.tickets}
-        }
-        case REMOVE_TICKET: {
+        case REMOVE_TICKET: 
             const newState = {...state}
             delete newState[action.ticketId]
             return newState
-        }
         default:
             return state;
     }

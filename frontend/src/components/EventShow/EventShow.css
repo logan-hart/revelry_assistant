@@ -183,3 +183,16 @@
     height: 100%;
     filter: blur(16px);
 }
+.event-show-details{
+    margin-bottom: 20px;
+    line-height: 28px;
+    word-wrap: normal;
+}
+
+.event-show-spacer{
+    margin-bottom: 5px
+}
+
+.event-show-double-spacer{
+    margin-bottom: 20px
+}

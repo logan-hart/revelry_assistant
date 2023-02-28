@@ -1,19 +1,19 @@
 class Api::TicketsController < ApplicationController
 
-    before_action :require_logged_in
+    before_action :require_logged_in, only: [:index, :show, :update, :destroy]
 
     def index
-        @events = Ticket.where(user_id: current_user.id)
-    end
-
-    def show
-        if current_user
-            @tickets = Tickets.find(params[:id])
+        if params['user_id']
+            @tickets = Ticket.where(user_id: params['user_id'])
         end
     end
 
+    def show
+        @ticket = Ticket.find(params[:id])
+    end
+
     def create
-        @ticket = current_user.tickets.new(ticket_params)
+        @ticket = Ticket.new(ticket_params)
 
         if @ticket.save
             render :show
@@ -27,7 +27,7 @@ class Api::TicketsController < ApplicationController
     end
 
     def destroy
-        @ticket = current_user.reviews.find(params[:id])
+        @ticket = Ticket.find(params[:id])
 
         unless @ticket
             render json: { message: 'Unauthorized'}, status: :unauthorized
@@ -35,7 +35,7 @@ class Api::TicketsController < ApplicationController
         end
 
         @ticket.destroy
-        render:show
+        render :show
     end
 
     private

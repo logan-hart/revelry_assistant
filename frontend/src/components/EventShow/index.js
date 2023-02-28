@@ -12,14 +12,20 @@ function EventShow (){
     const dispatch = useDispatch()
     const {eventId} = useParams()
     const event = useSelector(getEvent(eventId))
- 
+
     useEffect(() => {
         dispatch(fetchEvent(eventId))
     }, [dispatch, eventId])
     
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
+    
     if (!event) {
         return (<div></div>)
     }
+
+
 
     
     const formatTime = (time) =>{

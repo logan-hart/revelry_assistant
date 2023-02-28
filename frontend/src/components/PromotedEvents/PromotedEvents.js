@@ -14,6 +14,10 @@ export default function PromotedEvents() {
     useEffect (() => {
       dispatch(fetchPromotedEvents(userId))
     }, [dispatch, userId])
+    
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    })
 
     if (!events) {
       return null
@@ -23,7 +27,7 @@ export default function PromotedEvents() {
     <div>
       <div className='promoted-events-layout'>
         <div className="container promoted-events-container">
-          <div className="white-text big-text">My events</div>
+          <div className="white-text big-text">Promoted events</div>
         </div>
       </div>
 

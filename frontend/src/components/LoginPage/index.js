@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import ReactDom from 'react-dom';
+import { useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './LoginPage.css'
 
@@ -13,11 +12,14 @@ function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState([]);
     
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
+
     const toggleShowPassword= (e) => {
         e.preventDefault()
         setShowPassword(showPassword ? false : true);
     };
-
 
     const handleSubmit = (e) => {
         e.preventDefault();

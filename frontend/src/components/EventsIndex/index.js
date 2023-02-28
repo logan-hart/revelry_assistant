@@ -20,6 +20,10 @@ function EventsIndex(){
         dispatch(fetchEvents())
     },[dispatch])
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
+
     function submitLink() {
        return sessionUser ? "/events/create" : "/login"
     }

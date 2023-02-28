@@ -24,7 +24,7 @@ function UserModal({open, onClose}) {
                 <div id="user-modal">
                     <div className='white-text'>{sessionUser.username}</div>
                     <Link className="link" onClick={() => {onClose()}} to={`/users/${sessionUser.id}/events`}>Promoted Events</Link>
-                    <Link className="link" onClick={() => {onClose()}} to="/events">My tickets</Link>
+                    <Link className="link" onClick={() => {onClose()}} to={`/users/${sessionUser.id}/tickets`}>My tickets</Link>
                     <Link className="link" onClick={() => {onClose()}} to="/events">Following</Link>
                     <Link className="link" onClick={() => {onClose()}} to="/events">Edit Account</Link>
                     <Link className="link" onClick={() => {
