@@ -1,5 +1,5 @@
-class StaticPagesController < ApplicationController::Base
+class StaticPagesController < ActionController::Base
     def frontend_index
-        render file: rails.root.join('public', 'index.html')
+      render file: Rails.root.join('public', 'index.html')
     end
 end
