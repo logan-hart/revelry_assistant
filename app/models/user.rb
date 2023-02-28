@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_many :events, foreign_key: :promoter_id, inverse_of: :promoter, dependent: :destroy
+  has_many :events, foreign_key: :promoter_id, dependent: :destroy
   has_many :tickets, foreign_key: :user_id, dependent: :destroy
 
   def self.find_by_credentials(credential, password)

@@ -2,7 +2,7 @@ class Event < ApplicationRecord
     validates :name, :start_date, :end_date, :start_time, :end_time, :cost, :age_minimum, presence:true
     #validations for start and end date/time here
 
-    belongs_to :user, foreign_key: :promoter_id, class_name: :User
+    belongs_to :promoter, foreign_key: :promoter_id, class_name: :User
     has_many :tickets, foreign_key: :event_id, dependent: :destroy
     has_many :ticket_holders, through: :tickets, source: :user
 
