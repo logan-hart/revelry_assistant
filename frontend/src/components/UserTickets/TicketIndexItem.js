@@ -8,7 +8,6 @@ export default function TicketIndexItem({ticket}) {
     const events = useSelector(getEvents)
 
 
-  
     if(!events) {
         return null
     }
@@ -20,7 +19,7 @@ export default function TicketIndexItem({ticket}) {
 
         </div>
         <div className="big-text">
-            BLAH
+            Test
         </div>
         <div>
             <div>{events[eventId].startDate}</div>

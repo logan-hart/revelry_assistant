@@ -18,11 +18,11 @@ function EventsIndex(){
 
     useEffect(() => {
         dispatch(fetchEvents())
-    },[dispatch])
+    },[dispatch,])
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    })
+    }, [])
 
     function submitLink() {
        return sessionUser ? "/events/create" : "/login"

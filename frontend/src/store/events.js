@@ -67,6 +67,14 @@ export const fetchEvents = () => async(dispatch) => {
         dispatch(receiveEvents(data.events))
     }
 }
+export const fetchEventsByDate = () => async(dispatch) => {
+    const response = await csrfFetch('/api/events/byDate')
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(receiveEvents(data.events))
+    }
+}
 
 export const fetchPromotedEvents = (promoterId) => async(dispatch) =>{
     const response = await csrfFetch(`/api/events/?promoterId=${promoterId}`)

@@ -115,7 +115,7 @@ ApplicationRecord.transaction do
         tickets_sold: rand(1..450),
         venue: (Faker::Address.city_suffix).capitalize + " " + (Faker::Hacker.noun).capitalize,
         images: posters.shift,
-        genres: [genres_options.sample(rand(1...3))],
+        genres: genres_options.sample(rand(1...3)),
         details: 'None'
       }) 
     end

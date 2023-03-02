@@ -1,17 +1,19 @@
-import React from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deleteEvent } from '../../store/events'
+import ConfirmDelete from './ConfirmDelete'
 
 export default function PromotedEventIndexItem({event}) {
     const dispatch = useDispatch()
     const {id, name, lineup, startDate, images, ticketsSold, venue} = event
+    const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false)
 
     let lineupList =() =>  {
         if (lineup) return lineup.join(' / ')
     } 
 
-    function handleDelete(e) {
+    function handleDelete() {
         dispatch(deleteEvent(id))
     }   
 
@@ -45,7 +47,8 @@ export default function PromotedEventIndexItem({event}) {
                 <div>
                     <div className="promoted-buttons-container">
                         <Link to='/events/create'><button className="button transparent-button">Edit event</button></Link>
-                        <button onClick={handleDelete} className="button red-button">Cancel event</button>
+                        <button onClick={() => setConfirmDeleteOpen(true)} className="button red-button">Cancel event</button>
+                        <ConfirmDelete open={confirmDeleteOpen} onClose={() => setConfirmDeleteOpen(false)} handleDelete={handleDelete} ></ConfirmDelete>
                     </div>
                 </div>
             </div>

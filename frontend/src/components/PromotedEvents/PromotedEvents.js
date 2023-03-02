@@ -34,7 +34,7 @@ export default function PromotedEvents() {
 
       <div className='promoted-body-layout'>
         <div className='container promoted-body-container'>
-          <div spacer>
+          <div className="spacer">
             <div className="red-text medium-text promoted-spacer">/ UPCOMING EVENTS</div>
           </div>
           <div>

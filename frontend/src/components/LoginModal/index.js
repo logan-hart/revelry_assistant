@@ -19,7 +19,7 @@ function LoginModal({open, onClose}) {
         setShowPassword(showPassword ? false : true);
     };
 
-    if (sessionUser) return <Redirect to="/" />;
+    if (sessionUser) return <Redirect to="/events" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -49,7 +49,7 @@ function LoginModal({open, onClose}) {
     const demoLogin = () =>{
         let credential = 'demo@user.com'
         let password = 'password'
-        return dispatch(sessionActions.login({credential, password}))
+        dispatch(sessionActions.login({credential, password}))
     }
     
     if (!open) return null

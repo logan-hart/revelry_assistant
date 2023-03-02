@@ -75,6 +75,10 @@ select.selected{
 .medium-text {
     font-size: 2em;
 }
+
+.small-text{
+    font-size: .7em;
+}
 .container {
     width: 1180px;
     /* border: 1px solid red; */
@@ -211,4 +215,9 @@ button > span {
 .errors{
     color:rgb(255, 72, 72);
     margin-bottom: 25px;
+}
+
+.genre-div{
+    margin-top: 45px;
+    margin-left: 20px;
 }

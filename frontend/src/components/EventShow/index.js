@@ -25,9 +25,6 @@ function EventShow (){
         return (<div></div>)
     }
 
-
-
-    
     const formatTime = (time) =>{
         return time.slice(11, 16)
     }
@@ -35,7 +32,6 @@ function EventShow (){
     let lineupList =() =>  {
         if (lineup) return lineup.join(' / ')
     } 
-
 
     const {name, lineup, startDate, images, ticketsSold, venue, startTime, endTime} = event
 

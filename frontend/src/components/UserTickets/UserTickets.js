@@ -37,7 +37,7 @@ export default function UserTickets() {
 
       <div className='user-tickets-body-layout'>
         <div className='container user-tickets-body-container'>
-          <div spacer>
+          <div className="spacer">
             <div className="red-text medium-text user-tickets-spacer">/ UPCOMING EVENTS</div>
           </div>
           <div>

@@ -109,7 +109,7 @@ function CreateBody() {
         e.preventDefault()
 
         setErrors([]);
-          return dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+          dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
             .catch(async (res) => {
             let data;
             try {
@@ -122,6 +122,7 @@ function CreateBody() {
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
           });
+          
     }
 
     return (

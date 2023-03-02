@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 
@@ -22,6 +23,8 @@ const SignupForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
+    let type
+    sessionUser ? type = 'Update' : type ='Register'
 
     const genderOptions = ['Female', 'Male', 'Dont want to say', 'Agender', 'Androgynous', 'Bigender', 'FTM', 'Female to male', 'Gender fluid', 'Gender nonconforming', 'Gender questioning', 'Gender variant', 'Genderqueer', 'Intersex female', 'Intersex male', 'Intersex man', 'Intersex person', 'Intersex woman', 'Inersex/Inter', 'MTF', 'Male to female', 'Neither', 'Neutrois', 'Non-binary', 'Other', 'Pangender', 'Trans', 'Trans female', 'Trans male', 'Trans person', 'Trans woman', 'Trans*', 'Trans* female', 'Trans* male', 'Trans* man', 'Trans* person', 'Trans*woman', 'Transfeminine', 'Transgender', 'Transgender female', 'Transgender male', 'Transgender man', 'Transgender person', 'Transgender Woman', 'Transmasculine', 'Transsexual', 'Transsexual female', 'Transsexual male', 'Transsexual man', 'Transexual person', 'Transsexual woman', 'Two-spirit' ]
 
@@ -32,7 +35,7 @@ const SignupForm = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    })
+    }, [])
 
     function getAge() {
         let today = new Date();
@@ -51,7 +54,8 @@ const SignupForm = () => {
 
         if (email === confirmEmail) {
           setErrors([]);
-          return dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed}))
+          dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed}))
+          return dispatch(sessionActions.login({ email, password }))
             .catch(async (res) => {
             let data;
             try {
@@ -68,11 +72,21 @@ const SignupForm = () => {
         return setErrors(['Email addresses must match']);
       };
 
+    //   if (sessionUser) return <Redirect to="/events" />;
+
+      const errorsDisplay = () => {
+        if (!errors) {
+            return <></>
+        } else {
+            return <div>{errors}</div>
+        }
+    }  
+
     return (
         <>
             <div id='register-layout-1'>
                 <div id='signup-header' className='container'>
-                    <h1 className="grey-text big-text">Register</h1>
+                    <h1 className="grey-text big-text">{type}</h1>
                 </div>
             </div>
             <div id='register-layout-2' >
@@ -98,6 +112,7 @@ const SignupForm = () => {
                                                 value= {firstname}
                                                 onChange={(e) => setFirstname(e.target.value)}   
                                             />
+                                            <div className="errors">First name is required</div>
                                         </div>
                                         <div className="stack">
                                             <label className="form-label">Surname<span className="red-text">*</span></label>
