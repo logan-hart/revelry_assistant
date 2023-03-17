@@ -93,9 +93,6 @@ export const fetchTicketEvents = (promoterId) => async(dispatch) =>{
         dispatch(receiveEvents(data.events))
     }
 }
-
-
-
 export const createEvent = (event) => async dispatch => {
     const response = await csrfFetch('/api/events/', {
         method: 'POST',

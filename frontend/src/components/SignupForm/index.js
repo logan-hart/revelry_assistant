@@ -24,7 +24,7 @@ const SignupForm = () => {
     const sessionUser = useSelector(state => state.session.user);
 
     let type
-    sessionUser ? type = 'Update' : type ='Register'
+    sessionUser ? type = 'Edit account' : type ='Register'
 
     const genderOptions = ['Female', 'Male', 'Dont want to say', 'Agender', 'Androgynous', 'Bigender', 'FTM', 'Female to male', 'Gender fluid', 'Gender nonconforming', 'Gender questioning', 'Gender variant', 'Genderqueer', 'Intersex female', 'Intersex male', 'Intersex man', 'Intersex person', 'Intersex woman', 'Inersex/Inter', 'MTF', 'Male to female', 'Neither', 'Neutrois', 'Non-binary', 'Other', 'Pangender', 'Trans', 'Trans female', 'Trans male', 'Trans person', 'Trans woman', 'Trans*', 'Trans* female', 'Trans* male', 'Trans* man', 'Trans* person', 'Trans*woman', 'Transfeminine', 'Transgender', 'Transgender female', 'Transgender male', 'Transgender man', 'Transgender person', 'Transgender Woman', 'Transmasculine', 'Transsexual', 'Transsexual female', 'Transsexual male', 'Transsexual man', 'Transexual person', 'Transsexual woman', 'Two-spirit' ]
 
@@ -52,7 +52,7 @@ const SignupForm = () => {
         e.preventDefault();
         let age = getAge()
 
-        if (email === confirmEmail) {
+        if (email === confirmEmail && type === 'Register') {
           setErrors([]);
           dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed}))
           return dispatch(sessionActions.login({ email, password }))
@@ -68,8 +68,27 @@ const SignupForm = () => {
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
           });
+        } else {
+            if (email === confirmEmail && type === 'Edit account') {
+                setErrors([]);
+                dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed}))
+                return dispatch(sessionActions.login({ email, password }))
+                  .catch(async (res) => {
+                  let data;
+                  try {
+                    data = await res.clone().json();
+                  } catch {
+                    data = await res.text();
+                  }
+                  
+                  if (data?.errors) setErrors(data.errors);
+                  else if (data) setErrors([data]);
+                  else setErrors([res.statusText]);
+                });
+              }
         }
         return setErrors(['Email addresses must match']);
+
       };
 
     //   if (sessionUser) return <Redirect to="/events" />;
@@ -167,7 +186,7 @@ const SignupForm = () => {
                                                 <div className="stack">
                                                     <div>
                                                         <label className="form-label ">Password<span className="red-text">*</span></label>
-                                                        <button id="show-button" tabindex="-1" onClick={(e) => toggleShowPassword(e)}>Show <i className="fa-regular fa-eye red" ></i></button>
+                                                        <button id="show-button" tabIndex="-1" onClick={(e) => toggleShowPassword(e)}>Show <i className="fa-regular fa-eye red" ></i></button>
                                                     </div>
                                                         <input
                                                             className="form-input"
