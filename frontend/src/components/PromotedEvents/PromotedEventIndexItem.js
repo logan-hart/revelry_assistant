@@ -46,7 +46,7 @@ export default function PromotedEventIndexItem({event}) {
                 </div>
                 <div>
                     <div className="promoted-buttons-container">
-                        <Link to='/events/create'><button className="button transparent-button">Edit event</button></Link>
+                        <Link to={`/events/create/${event.id}`}><button className="button transparent-button">Edit event</button></Link>
                         <button onClick={() => setConfirmDeleteOpen(true)} className="button red-button">Cancel event</button>
                         <ConfirmDelete open={confirmDeleteOpen} onClose={() => setConfirmDeleteOpen(false)} handleDelete={handleDelete} ></ConfirmDelete>
                     </div>

@@ -29,6 +29,9 @@ function App() {
         <Route path='/events/:eventId/buyTickets'>
           <BuyTickets />
         </Route>
+        <Route path='/events/create/:eventId'>
+          <EventCreate />
+        </Route>
         <Route path='/events/create'>
           <EventCreate />
         </Route>

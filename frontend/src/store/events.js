@@ -48,7 +48,6 @@ export const getEvents = state => {
     return state?.events ? Object.values(state.events) : [];
 }
 
-
 export const fetchEvent = eventId => async(dispatch) => {
     const response = await csrfFetch(`/api/events/${eventId}`)
     
@@ -108,7 +107,7 @@ export const createEvent = (event) => async dispatch => {
     }
 }
 
-export const updateEvent= event => async(dispatch) => {
+export const updateEvent = event => async(dispatch) => {
     const response = await csrfFetch(`/api/events/${event.id}`, {
         method: "PATCH",
         body: JSON.stringify(event),

@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { Dispatch } from "react"
+import { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 import Step3 from "./Step3"
@@ -7,11 +7,11 @@ import Step4 from "./Step4"
 import ButtonNext from "./ButtonNext"
 import ButtonBack from "./ButtonBack"
 import CreateSubmit from "./ButtonSubmit"
-import { useDispatch } from "react-redux"
 import * as eventActions from "../../store/events";
 
 
-function CreateBody() {
+
+function CreateBody({event, type}) {
     const dispatch = useDispatch()
     const [step, setStep] = useState(1)
     const [name, setName] = useState('')
@@ -30,6 +30,26 @@ function CreateBody() {
     const [links, setLinks] = useState('')
     const [media, setMedia] = useState('')
     const [errors, setErrors] = useState([])
+    
+    useEffect(() => {
+        if (event) {
+            setName(event.name)
+            setStartDate(event.startDate)
+            setStartTime(event.startTime)
+            setEndDate(event.endDate)
+            setEndTime(event.endTime)
+            setVenue(event.venue)
+            setLineup(event.lineup)
+            setGenres(event.genres)
+            setDetails(event.details)
+            setCost(event.cost)
+            setAgeMinimum(event.ageMinimum)
+            setPromoter(event.promoter)
+            setImages(event.images)
+            setLinks(event.links)
+            setMedia(event.media)
+        }
+    }, [event])
 
 
     function handleNextStep(e) {
@@ -98,7 +118,7 @@ function CreateBody() {
                             <ButtonBack onClick={handleBack}/> 
                         </div>
                         <div className="right-button-spacer">
-                            <CreateSubmit onClick={handleSubmit}/>
+                            <CreateSubmit onClick={handleSubmit} type={type}/>
                         </div>
                     </>
                 );
@@ -108,20 +128,40 @@ function CreateBody() {
     function handleSubmit(e){
         e.preventDefault()
 
-        setErrors([]);
-          dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
-            .catch(async (res) => {
-            let data;
-            try {
-              data = await res.clone().json();
-            } catch {
-              data = await res.text();
-            }
+        if (type === 'Create'){
             
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-          });
+            setErrors([]);
+            dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+                .catch(async (res) => {
+                let data;
+                try {
+                data = await res.clone().json();
+                } catch {
+                data = await res.text();
+                }
+                
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+            });
+
+        } else {
+            setErrors([]);
+            dispatch(eventActions.updateEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+                .catch(async (res) => {
+                let data;
+                try {
+                data = await res.clone().json();
+                } catch {
+                data = await res.text();
+                }
+                
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+            });
+
+        }
           
     }
 
