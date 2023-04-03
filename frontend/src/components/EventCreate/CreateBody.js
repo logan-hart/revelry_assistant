@@ -8,6 +8,7 @@ import ButtonNext from "./ButtonNext"
 import ButtonBack from "./ButtonBack"
 import CreateSubmit from "./ButtonSubmit"
 import * as eventActions from "../../store/events";
+import { Redirect } from "react-router-dom"
 
 
 
@@ -30,6 +31,8 @@ function CreateBody({event, type}) {
     const [links, setLinks] = useState('')
     const [media, setMedia] = useState('')
     const [errors, setErrors] = useState([])
+
+    let eventId
     
     useEffect(() => {
         if (event) {
@@ -147,7 +150,9 @@ function CreateBody({event, type}) {
 
         } else {
             setErrors([]);
-            dispatch(eventActions.updateEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+            let eventId = event.id
+
+            dispatch(eventActions.updateEvent({ eventId, name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
                 .catch(async (res) => {
                 let data;
                 try {
@@ -160,6 +165,7 @@ function CreateBody({event, type}) {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
+            <Redirect to='events/:eventId'/>
 
         }
           

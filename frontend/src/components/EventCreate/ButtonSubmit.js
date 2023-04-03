@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom"
 function CreateSubmit ({onClick, type}) {
 
     const params = useParams()
-    
-
 
     return (
         <>
