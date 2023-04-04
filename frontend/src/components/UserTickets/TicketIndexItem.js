@@ -16,15 +16,10 @@ export default function TicketIndexItem({ticket}) {
     return (
     <div>
         <div>
-
-        </div>
-        <div className="big-text">
-            Test
-        </div>
-        <div>
             <div>{events[eventId].startDate}</div>
             <div>{events[eventId].name}</div>
             <div>{events[eventId].location}</div>
+            <div>{events[eventId].startTime.slice(11,16)}</div>
             <div>{numTickets}</div>
         </div>
     </div>

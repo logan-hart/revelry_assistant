@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import * as userActions from "../../store/user"
 import './SignupForm.css'
 
 const SignupForm = () => {
@@ -22,16 +23,34 @@ const SignupForm = () => {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory()
 
     let type
     sessionUser ? type = 'Edit account' : type ='Register'
 
     const genderOptions = ['Female', 'Male', 'Dont want to say', 'Agender', 'Androgynous', 'Bigender', 'FTM', 'Female to male', 'Gender fluid', 'Gender nonconforming', 'Gender questioning', 'Gender variant', 'Genderqueer', 'Intersex female', 'Intersex male', 'Intersex man', 'Intersex person', 'Intersex woman', 'Inersex/Inter', 'MTF', 'Male to female', 'Neither', 'Neutrois', 'Non-binary', 'Other', 'Pangender', 'Trans', 'Trans female', 'Trans male', 'Trans person', 'Trans woman', 'Trans*', 'Trans* female', 'Trans* male', 'Trans* man', 'Trans* person', 'Trans*woman', 'Transfeminine', 'Transgender', 'Transgender female', 'Transgender male', 'Transgender man', 'Transgender person', 'Transgender Woman', 'Transmasculine', 'Transsexual', 'Transsexual female', 'Transsexual male', 'Transsexual man', 'Transexual person', 'Transsexual woman', 'Two-spirit' ]
 
+    useEffect(() => {
+        if (sessionUser) {
+            setFirstname(sessionUser.firstName)
+            setSurname(sessionUser.surname)
+            setGender(sessionUser.gender)
+            setEmail(sessionUser.email)
+            setConfirmEmail(sessionUser.confirmEmail)
+            setUsername(sessionUser.username)
+            setPassword(sessionUser.password)
+            setBirthDay(sessionUser.birthDay)
+            setBirthMonth(sessionUser.birthMonth)
+            setBirthYear(sessionUser.birthYear)
+            setSubscribed(sessionUser.subscribed)
+        }
+    })
+
     const toggleShowPassword= (e) => {
         e.preventDefault()
         setShowPassword(showPassword ? false : true);
     };
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -50,50 +69,51 @@ const SignupForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let age = getAge()
-
-        if (email === confirmEmail && type === 'Register') {
+        let age = getAge();
+      
+        if (email === confirmEmail) {
           setErrors([]);
-          dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed}))
-          return dispatch(sessionActions.login({ email, password }))
-            .catch(async (res) => {
-            let data;
-            try {
-              data = await res.clone().json();
-            } catch {
-              data = await res.text();
-            }
-            
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-          });
+          if (type === 'Register') {
+            dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed }))
+              .then(() => dispatch(sessionActions.login({ email, password })))
+              .catch(async (res) => {
+                let data;
+                try {
+                  data = await res.clone().json();
+                } catch {
+                  data = await res.text();
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+              });
+          } else if (type === 'Edit account') {
+            let userId =sessionUser.id
+            debugger
+            dispatch(userActions.updateUser({ userId, firstname, surname, gender, email, username, password, age, subscribed }))
+              .then(() => {
+                history.push(`/events`)
+            })
+              .catch(async (res) => {
+                let data;
+                try {
+                  data = await res.clone().json();
+                } catch {
+                  data = await res.text();
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+              });
+          }
         } else {
-            if (email === confirmEmail && type === 'Edit account') {
-                setErrors([]);
-                dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed}))
-                return dispatch(sessionActions.login({ email, password }))
-                  .catch(async (res) => {
-                  let data;
-                  try {
-                    data = await res.clone().json();
-                  } catch {
-                    data = await res.text();
-                  }
-                  
-                  if (data?.errors) setErrors(data.errors);
-                  else if (data) setErrors([data]);
-                  else setErrors([res.statusText]);
-                });
-              }
+          setErrors(['Email addresses must match']);
         }
-        return setErrors(['Email addresses must match']);
-
       };
 
     //   if (sessionUser) return <Redirect to="/events" />;
 
-      const errorsDisplay = () => {
+    const errorsDisplay = () => {
         if (!errors) {
             return <></>
         } else {
@@ -183,6 +203,7 @@ const SignupForm = () => {
                                                             onChange={(e) => setUsername(e.target.value)}   
                                                         />
                                                 </div>
+                                                {type ==='Register' ? ( 
                                                 <div className="stack">
                                                     <div>
                                                         <label className="form-label ">Password<span className="red-text">*</span></label>
@@ -195,6 +216,7 @@ const SignupForm = () => {
                                                             onChange={(e) => setPassword(e.target.value)}   
                                                         />
                                                 </div>
+                                                ) : null}
                                             </div>
                                     </div>
                                 </div>
@@ -248,8 +270,11 @@ const SignupForm = () => {
                         <div id="register-column-2">
                             <div id="register-column-21"></div>
                             <div id="register-column-22">
-                                <h2>Already have an Account?</h2>
-                                <Link className="link" to="/login"><button className="button white-button">Login</button></Link>
+                                {type === 'Register' ? (<>
+                                    <h2>Already have an Account?</h2>
+                                    <Link className="link" to="/login"><button className="button white-button">Login</button></Link>
+                                </>
+                                ) : null}
                                 </div>
                             </div>
                         </div>

@@ -170,9 +170,7 @@ function CreateBody({event, type}) {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
-
         }
-          
     }
 
     return (
