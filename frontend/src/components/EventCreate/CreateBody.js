@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 import Step3 from "./Step3"
@@ -8,12 +9,12 @@ import ButtonNext from "./ButtonNext"
 import ButtonBack from "./ButtonBack"
 import CreateSubmit from "./ButtonSubmit"
 import * as eventActions from "../../store/events";
-import { Redirect } from "react-router-dom"
 
 
 
 function CreateBody({event, type}) {
     const dispatch = useDispatch()
+    const history = useHistory();
     const [step, setStep] = useState(1)
     const [name, setName] = useState('')
     const [startDate, setStartDate] = useState('')
@@ -135,6 +136,7 @@ function CreateBody({event, type}) {
             
             setErrors([]);
             dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+            
                 .catch(async (res) => {
                 let data;
                 try {
@@ -152,7 +154,10 @@ function CreateBody({event, type}) {
             setErrors([]);
             let eventId = event.id
 
-            dispatch(eventActions.updateEvent({ eventId, name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+            dispatch(eventActions.updateEvent({ eventId, name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media }))
+            .then(() => {
+              history.push(`/events/${eventId}`);
+            })
                 .catch(async (res) => {
                 let data;
                 try {
@@ -165,7 +170,6 @@ function CreateBody({event, type}) {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
-            <Redirect to='events/:eventId'/>
 
         }
           
