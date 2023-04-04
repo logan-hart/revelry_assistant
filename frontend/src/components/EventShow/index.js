@@ -79,6 +79,9 @@ function EventShow (){
                 <div className='show-layout-2'>
                     <div className='container'>
                         <div className="event-show-ticketing-info">
+                            <div>
+                                
+                            </div>
                             <TicketingInfo event={event}/>
                         </div>
                     </div>

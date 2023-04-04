@@ -1,0 +1,16 @@
+.user-tickets-body-container{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-tickets-body-layout{
+    justify-content: center;
+    display: flex;
+    background-color: #131313;
+}
+
+
+.ticket-index-columns{
+    display: flex;
+}

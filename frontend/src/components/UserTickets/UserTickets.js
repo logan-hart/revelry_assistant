@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTickets, fetchUserTickets, fetchTicketEvents } from '../../store/tickets';
 import TicketIndexItem from './TicketIndexItem';
-import './UserTickets.js'
+import './UserTickets.css'
 
 export default function UserTickets() {
   const dispatch = useDispatch()
@@ -39,6 +39,12 @@ export default function UserTickets() {
         <div className='container user-tickets-body-container'>
           <div className="spacer">
             <div className="red-text medium-text user-tickets-spacer">/ UPCOMING EVENTS</div>
+          </div>
+          <div className="ticket-index-columns mid-grey-text">
+            <div>Event date</div>
+            <div>Event title</div>
+            <div>Location</div>
+            <div>Tickets</div>
           </div>
           <div>
             {tickets.map(ticket =>
