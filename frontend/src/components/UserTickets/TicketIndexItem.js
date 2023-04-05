@@ -16,7 +16,7 @@ export default function TicketIndexItem({ticket}) {
     
     return (
     <div>
-        <div className="ticket-index-info ticket-index-columns">
+        <div className="ticket-index-info ticket-index-items">
             <div className="mid-grey-text">{events[eventId].startDate}</div>
             <div><Link className="white-text link" to={`/events/${eventId}`}>{events[eventId].name}</Link></div>
             <div className="white-text"><i className="fa-solid fa-location-dot red-text"></i>{events[eventId].venue}</div>

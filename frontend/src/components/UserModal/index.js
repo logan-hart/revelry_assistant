@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import ReactDom from 'react-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +9,20 @@ import './UserModal.css'
 function UserModal({open, onClose}) {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
+    
+    useEffect(() => {
+    function handleKeyDown(event) {
+        if (event.key === 'Escape') {
+        onClose();
+        }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+    };
+    }, [onClose]);
 
     const logout = () => {
 

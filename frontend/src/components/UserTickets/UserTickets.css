@@ -14,3 +14,10 @@
 .ticket-index-columns{
     display: flex;
 }
+
+.ticket-index-items{
+    display: flex;
+    border-top: 1px solid grey;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
