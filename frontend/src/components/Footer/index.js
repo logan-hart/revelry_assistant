@@ -2,6 +2,13 @@ import whitelogo from './whitelogo.png'
 import './Footer.css'
 
 function Footer() {
+    const emailAddress = 'loganchart@gmail.com';
+    const emailSubject = 'I checked out Revelry Assistant!'
+
+    function handleSubmit() {
+        window.location.href = `mailto:${emailAddress}?subject=${emailSubject}`;
+      }
+
     return (
         <div className="footer-layout">
             <div className="container footer-container white-text">
@@ -10,27 +17,26 @@ function Footer() {
                 </div>
                 <div className="footer-fifth footer-divider" >
                     <div>
-                        <div className="form-label dark-text">Discover</div>
-                        <div className="footer-row medium-text">
-                            <div >About /</div>
-                            <div className="footer-details-spacer"> Tickets /</div>
-                            <div className="footer-details-spacer"> Resale /</div>
-                            <div className="footer-details-spacer"> Advertise /</div>
-                            <div className="footer-details-spacer"> Jobs</div>
+                        <div className="form-label dark-text">Developer info</div>
+                        <div className="footer-row medium-text white-text">
+                            <a href="https://www.linkedin.com/in/logan-hartman4104/" className="link left-footer-link" target="_blank" rel="noopener noreferrer">Linkedin</a><span> / </span>
+                            <a href="https://github.com/logan-hart" className="link footer-link" target="_blank" rel="noopener noreferrer">Github</a><span> / </span>
+                            <a href="https://logan-hart.github.io/portfolio/" className="link footer-link" target="_blank" rel="noopener noreferrer">Portfolio</a><span> / </span>
+                            <a href="https://docs.google.com/document/d/1mQGqwyVjrPUB5H7WHjbHwxLrvxNObw820-n7WodVMsk/edit?usp=sharing" className="link footer-link"  target="_blank" rel="noopener noreferrer">Resume </a>
                         </div>
                     </div>
                     <div>
-                        <div className="form-label dark-text">Get RA apps</div>
+                        <div className="form-label dark-text">More by this developer</div>
                         <div className="footer-row medium-text">
-                            <div>RA Guide / </div>
-                            <div className="footer-details-spacer"> RA Scanner</div>
+                            <a href="https://puppy-play-dates.herokuapp.com/" className="link left-footer-link" target="_blank" rel="noopener noreferrer">Puppy Play Dates</a><span> / </span>
+                            <a href="https://logan-hart.github.io/pathfinder/" className="link footer-link" target="_blank" rel="noopener noreferrer">Pathfinder</a>
                         </div>
                         
                     </div>
                 </div>
                 <div className="footer-fifth">
                     <div className="medium-text dark-text footer-promoter">Are you a recruiter?</div>
-                    <button className="button black-button ">Contact me</button>
+                    <button onClick={handleSubmit} className="button black-button ">Contact me</button>
                 </div>
                 <div className="footer-fifth footer-divider fourth">
                     <div className="footer-row form-label">
@@ -47,16 +53,10 @@ function Footer() {
                 <div className="footer-fifth footer-divider fifth">
                     <div>
                         <div className="form-label dark-text"> Clone of Resident Advisor Ltd. 2023 by Logan Hart. All rights reserved.</div>
-
                     </div>
-                    <div className="footer-row">
+                    <div className=" form-label footer-row dark-text">
                         <div></div>
-                        <div>Link icon</div>
-                        <div>Link icon</div>
-                        <div>Link icon</div>
-                        <div>Link icon</div>
-                        <div>Link icon</div>
-                        <div>Link icon</div>
+                        <div>Built Using: Javascript / React / Ruby on Rails / PostgreSQL</div>
                     </div>
                 </div>
 

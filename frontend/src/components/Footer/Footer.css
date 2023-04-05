@@ -54,3 +54,14 @@
 .footer-logo{
     height: 50px
 }
+
+.footer-link{
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+.left-footer-link{
+    color: white;
+    padding-right: 15px;
+}
