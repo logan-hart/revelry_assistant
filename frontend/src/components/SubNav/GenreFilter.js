@@ -1,8 +1,23 @@
+import { useEffect } from "react";
 import reactDom from "react-dom"
 import "./SubNav.css"
 
 export default function GenreFilter({open, onClose, genre, setGenre }) {
     const genres=['Acid', 'Afrobeat', 'Baile Funk', 'Bass', 'Breakcore', 'Club', 'Dancehall', 'Deep House', 'Dembow', 'Disco', 'Drum & Bass', 'Dub', 'Electro', 'Experimental', 'Funk/Soul', 'Hip-Hop', 'House', 'Italo Disco', 'Jungle', 'Latin Bass', 'Minimal', 'Neo Perreo', 'Pop', 'Progressive House', 'Reggaeton', 'R&B', 'Tech House', 'Techno', 'Trance']
+
+    useEffect(() => {
+        function handleKeyDown(event) {
+            if (event.key === 'Escape') {
+            onClose();
+            }
+        }
+    
+        window.addEventListener('keydown', handleKeyDown);
+    
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+        }, [onClose]);
 
     if(!open) return null
     return reactDom.createPortal(
