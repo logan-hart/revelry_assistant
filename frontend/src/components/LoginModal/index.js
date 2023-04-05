@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDom from 'react-dom';
-import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+import * as sessionActions from '../../store/session';
 import './LoginModal.css'
 
 function LoginModal({open, onClose}) {
@@ -14,6 +13,20 @@ function LoginModal({open, onClose}) {
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState([]);
     
+    useEffect(() => {
+        function handleKeyDown(event) {
+            if (event.key === 'Escape') {
+            onClose();
+            }
+        }
+    
+        window.addEventListener('keydown', handleKeyDown);
+    
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [onClose]);
+
     const toggleShowPassword= (e) => {
         e.preventDefault()
         setShowPassword(showPassword ? false : true);

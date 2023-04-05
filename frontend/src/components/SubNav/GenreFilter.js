@@ -17,7 +17,7 @@ export default function GenreFilter({open, onClose, genre, setGenre }) {
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-        }, [onClose]);
+    }, [onClose]);
 
     if(!open) return null
     return reactDom.createPortal(

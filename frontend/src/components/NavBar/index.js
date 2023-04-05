@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import { useState } from "react"
 import LoginModal from "../LoginModal"
 import UserModal from "../UserModal"
+import DeveloperModal from "../DeveloperModal/DeveloperModal"
 import './navBar.css'
 
 function NavBar() {
@@ -10,6 +11,7 @@ function NavBar() {
     let account = sessionUser ? sessionUser.username : 'My account'
     const[loginModalOpen, setLoginModalOpen] = useState(false)
     const[userModalOpen, setUserModalOpen] = useState(false)
+    const[developerModalOpen, setDeveloperModalOpen] = useState(false)
     
     return (
         <div id="nav-layout">
@@ -27,7 +29,9 @@ function NavBar() {
                     <button id="profile" className="nav-link link" onClick={() => sessionUser ? setUserModalOpen(true) : setLoginModalOpen(true)}><i className="fa-regular fa-user"> </i> {account}</button>
                     <LoginModal open={loginModalOpen} onClose={()=> setLoginModalOpen(false)}></LoginModal>
                     <UserModal open={userModalOpen} onClose={()=> setUserModalOpen(false)}></UserModal>
-                    <NavLink to="/events"><i id="menu-bars" className="fa-solid fa-bars"></i></NavLink>
+                    <button id="profile" className="nav-link link" onClick={() => setDeveloperModalOpen(true)}><i id="menu-bars" className="fa-solid fa-bars"></i></button>
+                    <DeveloperModal open={developerModalOpen} onClose={()=> setDeveloperModalOpen(false)}></DeveloperModal>
+                    <NavLink to="/events"></NavLink>
                 </div>
             </div>
 

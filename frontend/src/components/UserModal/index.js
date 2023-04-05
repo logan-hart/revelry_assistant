@@ -11,17 +11,17 @@ function UserModal({open, onClose}) {
     const sessionUser = useSelector(state => state.session.user)
     
     useEffect(() => {
-    function handleKeyDown(event) {
-        if (event.key === 'Escape') {
-        onClose();
+        function handleKeyDown(event) {
+            if (event.key === 'Escape') {
+            onClose();
+            }
         }
-    }
 
-    window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-        window.removeEventListener('keydown', handleKeyDown);
-    };
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
     }, [onClose]);
 
     const logout = () => {

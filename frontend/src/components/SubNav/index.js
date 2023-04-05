@@ -19,8 +19,6 @@ function SubNav() {
                 <Link className="sub-nav-link link white-text" to="/Events">Events</Link>
                 <Link className="sub-nav-link link white-text" to="/Events">For you</Link>
                 <Link className="sub-nav-link link white-text" to="/Events">Just announced</Link>
-
-
             </div>
             <div className="right-sub-nav">
                 <span className="red-text" id="filter-icon"><i className="fa-solid fa-sliders"></i></span>
