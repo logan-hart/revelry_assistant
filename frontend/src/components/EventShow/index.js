@@ -68,9 +68,9 @@ function EventShow (){
                                         <div className='red-text medium-text'>{ticketsSold}</div>
 
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <button className="button transparent-button" id='event-show-interested'>Interested</button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                     </div>

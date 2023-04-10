@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function TicketingInfo({event}){ 
     const [ticketNum, setTicketNum] = useState(1)
@@ -45,7 +46,11 @@ function TicketingInfo({event}){
                         <button onClick={handleTicketIncrease} className='circular-button transparent-button'>+</button>
                     </div>
                     <div>
-                        <button id="buy-button" className='button red-button'><i className="fa-solid fa-ticket ticket-icon-spacer"></i>Buy Tickets</button>
+                        <Link to={{
+                            pathname: `/events/${event.id}/buyTickets`, 
+                            state: {ticketNum, event}
+                        }}
+                             className='button red-button'><i className="fa-solid fa-ticket ticket-icon-spacer"></i>Buy Tickets</Link>
                     </div>
 
                 </div>

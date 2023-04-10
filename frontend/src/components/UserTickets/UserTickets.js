@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTickets, fetchUserTickets, fetchTicketEvents } from '../../store/tickets';
+import { fetchEvents } from '../../store/events';
 import TicketIndexItem from './TicketIndexItem';
 import './UserTickets.css'
 
@@ -14,10 +15,10 @@ export default function UserTickets() {
     dispatch(fetchUserTickets(userId))
   }, [dispatch, userId])
 
-  // useEffect (() => {
-  //   dispatch(fetchTicketEvents())
+  useEffect(() => {
+    dispatch(fetchEvents())
+  },[dispatch,])
 
-  // })
     
   useEffect(() => {
       window.scrollTo(0, 0);

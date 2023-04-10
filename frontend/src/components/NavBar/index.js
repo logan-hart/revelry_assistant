@@ -19,10 +19,9 @@ function NavBar() {
             <div className="nav-container container">
                 <div id="left-nav">
                     <NavLink id="icon-link" className="link nav-link" to="/welcome"><img id="icon" src="https://www.seekpng.com/png/full/309-3093587_ra-logo-png-logo-ra.png"/></NavLink>
-                    <NavLink id="event-link" className="link nav-link" to="/events">Events</NavLink>
-                    <NavLink id="event-link" className="link nav-link" to="/events">Music</NavLink>
-                    <NavLink id="event-link" className="link nav-link" to="/events">Magazine</NavLink>
-                    <NavLink id="event-link" className="link nav-link" to="/events">RA2122</NavLink>
+                    <NavLink id="event-link" className="link nav-link" to="/events">All events</NavLink>
+                    <NavLink id="event-link" className="link nav-link" to='/users/:userId/tickets'>My tickets</NavLink>
+                    <NavLink id="event-link" className="link nav-link" to='/users/:userId/events'>Promoted events</NavLink>
                     <NavLink id="event-link" className="link nav-link" to="/events"><i id="Search" className="fa-solid fa-magnifying-glass"></i></NavLink>
                 </div>
                 <div id="right-nav">
