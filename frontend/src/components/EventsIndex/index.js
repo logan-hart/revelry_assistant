@@ -62,14 +62,14 @@ function EventsIndex(){
                     ) : null}
                     <div>
                         <div className ='event-Calendar'>
-                            <h1 id="sticky-date" className='red-text'>/ All Events</h1>
-                                {events.map((event) => (
+                            <h1 id="sticky-date" className='red-text'>/ {genre || 'All'} Events</h1>
+                                {events ? events.map((event) => (
                                     <EventIndexItem
                                         key={event.id}
                                         event={event}
                                         genre={genre}
                                     />
-                                ))}
+                                )) : <div className='white-text'> There are no upcoming {genre} events</div>}
                         </div>
                     </div>
                 </div>

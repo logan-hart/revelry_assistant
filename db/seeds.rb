@@ -128,9 +128,9 @@ ApplicationRecord.transaction do
       num_tickets: 4
     )
 
-    40.times do 
+    5.times do 
       Ticket.create!({
-        user_id: rand(1...User.all.length),
+        user_id: 1,
         event_id: rand(1...Event.all.length),
         num_tickets: rand(1...6)
       })

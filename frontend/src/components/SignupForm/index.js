@@ -32,11 +32,11 @@ const SignupForm = () => {
 
     useEffect(() => {
         if (sessionUser) {
-            setFirstname(sessionUser.firstName)
+            setFirstname(sessionUser.firstname)
             setSurname(sessionUser.surname)
             setGender(sessionUser.gender)
             setEmail(sessionUser.email)
-            setConfirmEmail(sessionUser.confirmEmail)
+            setConfirmEmail(sessionUser.email)
             setUsername(sessionUser.username)
             setPassword(sessionUser.password)
             setBirthDay(sessionUser.birthDay)

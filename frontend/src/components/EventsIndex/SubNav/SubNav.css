@@ -6,10 +6,13 @@
 }
 
 .right-sub-nav{
-    width: 377px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.filter{
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .sub-nav-button{
@@ -50,7 +53,7 @@
 }
 
 .genre-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -58,7 +61,6 @@
     height: inherit;
     background-color: rgb(0,0,0,.7);
     z-index: 100;
-
 }
 
 .genre-close{
@@ -110,3 +112,4 @@
 .genre-cancel-button:hover{
     background-color: #313131
 }
+
