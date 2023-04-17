@@ -10,19 +10,18 @@ div.portal{
     left: 50%;
     transform: translate(-50%, -50% );
     background-color: black;
-    z-index: 100;
+    z-index: 101;
 }
 
 #modal-overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     height: inherit;
     background-color: black;
-    z-index: 100;
-    pointer-events: none;
+    z-index: 99;
 }
 
 button#show-button{

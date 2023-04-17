@@ -4,8 +4,7 @@ import GenreFilter from './GenreFilter'
 import DateFilter from './DateFilter'
 import './SubNav.css'
 
-function SubNav() {
-    let [genre, setGenre] = useState('')
+function SubNav({genre, setGenre}) {
     const [genreFilterOpen, setGenreFilterOpen] = useState(false)
     const [date, setDate] = useState('')
     const [dateFilterOpen, setDateFilterOpen] = useState(false)
@@ -15,10 +14,10 @@ function SubNav() {
     return (
         <>
             <div className="left-sub-nav">
-                <Link className="sub-nav-link link white-text" to="/Events">Overview</Link>
-                <Link className="sub-nav-link link white-text" to="/Events">Events</Link>
-                <Link className="sub-nav-link link white-text" to="/Events">For you</Link>
-                <Link className="sub-nav-link link white-text" to="/Events">Just announced</Link>
+                <span className="sub-nav-link white-text" to="/Events">Overview</span>
+                <span  className="sub-nav-link white-text" to="/Events">Events</span>
+                <span className="sub-nav-link white-text" to="/Events">For you</span>
+                <span className="sub-nav-link white-text" to="/Events">Just announced</span>
             </div>
             <div className="right-sub-nav">
                 <span className="red-text" id="filter-icon"><i className="fa-solid fa-sliders"></i></span>

@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom"
 
-function EventIndexItem({event}){
+function EventIndexItem({event, genre}){
     const {id, name, lineup, startDate, images, ticketsSold, venue} = event
 
     let lineupList =() =>  {
         if (lineup) return lineup.join(' / ')
     } 
+
+    if (genre !== '' && !event.genres.includes(genre)) {
+        return null
+    }
 
     return (
         <li>

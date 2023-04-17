@@ -25,7 +25,7 @@ export default function DeveloperModal({open, onClose}) {
 
   return reactDom.createPortal(
     <>
-      <div id="modal-overlay"></div>
+      <div onClick={onClose} id="modal-overlay"></div>
       <button onClick={onClose} id="close-modal">&times;</button>
       <div id="login-modal" className="developer-modal">
         <div>

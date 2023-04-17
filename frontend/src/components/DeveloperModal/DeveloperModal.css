@@ -5,9 +5,8 @@
 
 .developer-modal{
     display: flex;
-
     line-height: 1.2em;
-    z-index: 100;
+    z-index: 101;
     font-size: xx-large;
 }
 

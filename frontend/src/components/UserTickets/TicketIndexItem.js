@@ -1,20 +1,12 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchEvent } from '../../store/events'
+import { useSelector} from 'react-redux'
 import { getEvents } from '../../store/events'
 
 
 export default function TicketIndexItem({ticket}) {
-    const dispatch = useDispatch()
     const {eventId, numTickets} = ticket
     const events = useSelector(getEvents)
-
     
-    // useEffect(() => {
-    //     dispatch(fetchEvent(eventId))
-    // }, [dispatch, ticket] )
-
     if(!events) {
         return null
     }

@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { getEvents, getEventsByDate, getPopularEvents, fetchEvents } from '../../store/events'
 import EventIndexItem from './EventIndexItem'
 import PopularEvent from './PopularEvent'
-
-
-import SubNav from '../SubNav'
+import SubNav from './SubNav/index.js'
 import Header from '../Header'
 import './Events.css'
 
@@ -15,6 +13,7 @@ function EventsIndex(){
     const events = useSelector(getEventsByDate)
     const popularEvents = useSelector(getPopularEvents)
     const sessionUser = useSelector(state => state.session.user)
+    const [genre, setGenre] = useState('')
 
     useEffect(() => {
         dispatch(fetchEvents())
@@ -38,31 +37,37 @@ function EventsIndex(){
                 
             <div id='layout-2' >
                 <div className='container sub-nav-container'>
-                    <SubNav />
+                    <SubNav genre={genre} setGenre={setGenre}/>
                 </div>
             </div>
             
             <div id='layout-3'>
                 <div className='container' id="event-container">
-                    <div className='popular-header'>
-                        <h1 className="red-text">/ Popular</h1>
-                        <Link to={submitLink()}><button className="button transparent-button">Submit event</button></Link>
-                    </div>
-                    <div className ="popular-events">
-                        {popularEvents.map((popEvent) =>(
-                            <PopularEvent
-                                key={popEvent.id}
-                                popEvent={popEvent}
-                            />
-                        ))}
-                    </div>
+                    {genre === '' ? (
+                        <>
+                        <div className='popular-header'>
+                            <h1 className="red-text">/ Popular</h1>
+                            <Link to={submitLink()}><button className="button transparent-button">Submit event</button></Link>
+                        </div>
+                        <div className ="popular-events">
+                            {popularEvents.map((popEvent) =>(
+                                <PopularEvent
+                                    key={popEvent.id}
+                                    popEvent={popEvent}
+                                    genre= {genre}
+                                />
+                            ))}
+                        </div>
+                        </>
+                    ) : null}
                     <div>
                         <div className ='event-Calendar'>
-                            <h1 id="sticky-date" className='red-text'>/ Date</h1>
+                            <h1 id="sticky-date" className='red-text'>/ All Events</h1>
                                 {events.map((event) => (
                                     <EventIndexItem
                                         key={event.id}
                                         event={event}
+                                        genre={genre}
                                     />
                                 ))}
                         </div>
