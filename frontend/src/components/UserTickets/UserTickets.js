@@ -27,6 +27,8 @@ export default function UserTickets() {
     return null;
   }
 
+  
+
   return (
     <div>
       <div className='promoted-events-layout'>

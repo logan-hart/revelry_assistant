@@ -55,6 +55,7 @@ ApplicationRecord.transaction do
       promoter_id: 1,
       lineup: ['Disclosure', 'Odesza', 'Martin Garix', 'Oliver Heldens'],
       tickets_sold: 450,
+      available_tickets: 455,
       venue: 'Basement',
       details: "Héctor Oaks\' résumé is one of the most impressive in techno today: a resident at the revered Bassiani as well as Berlin\'s best party, Herrensauna, label boss for the impeccable OAKS and KAOS labels and a master of the all-vinyl set. He\'s a rare DJ who can keep up with the old-school masters while sounding utterly current. His sets bristle and explode with the tight focus of purist techno, while also mixing moments of snickering flash that call back to \'90s rave. An unstoppably charismatic force in the booth, his set at last year\'s Wire Festival was a standout. Kyruh was another Wire highlight and has been a significant presence at BASEMENT over the last year and change. A true rising star on the decks, she lets it rip without hesitation, delivering a high velocity techno firestorm that refuses to relent. And the world has taken notice: Kyruh has been steadily working her way across North America and will be returning to Europe in the spring. Jek returns to the club for the third time in as many months. His sets bloom and glow with a warm energy, diving into flowy techno, breaks and basslines with a cool, decisive touch.
       
@@ -108,6 +109,7 @@ ApplicationRecord.transaction do
         age_minimum: rand(18..21),
         promoter_id: rand(1..10),
         tickets_sold: rand(1..450),
+        available_tickets: 500,
         venue: (Faker::Address.city_suffix).capitalize + " " + (Faker::Hacker.noun).capitalize,
         images: posters.shift,
         genres: genres_options.sample(rand(1...3)),

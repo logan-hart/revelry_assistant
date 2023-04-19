@@ -64,6 +64,7 @@
 
 .event-show-divider{
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
@@ -195,4 +196,10 @@
 
 .event-show-double-spacer{
     margin-bottom: 20px
+}
+
+
+.buy-button{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
