@@ -1,31 +1,30 @@
-import React from 'react'
+import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTickets, fetchUserTickets, fetchTicketEvents } from '../../store/tickets';
 import { fetchEvents } from '../../store/events';
 import TicketIndexItem from './TicketIndexItem';
-import './UserTickets.css'
+import './UserTickets.css';
 
 export default function UserTickets() {
-  const dispatch = useDispatch()
-  const tickets = useSelector(getTickets)
-  const userId = useSelector(state => state.session.user.id)
-
-  useEffect (() => {
-    dispatch(fetchUserTickets(userId))
-  }, [dispatch, userId])
+  const dispatch = useDispatch();
+  const tickets = useSelector(getTickets);
+  const userId = useSelector(state => state.session.user.id);
 
   useEffect(() => {
-    dispatch(fetchEvents())
-  },[dispatch,])
+    dispatch(fetchUserTickets(userId));
+  }, [dispatch, userId]);
 
-    
   useEffect(() => {
-      window.scrollTo(0, 0);
-  })
+    dispatch(fetchEvents());
+  }, [dispatch]);
 
-  if(!tickets) {
-    return null
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
+  if (!tickets) {
+    return null;
   }
 
   return (
@@ -39,25 +38,25 @@ export default function UserTickets() {
       <div className='user-tickets-body-layout'>
         <div className='container user-tickets-body-container'>
           <div className="spacer">
-            <div className="red-text medium-text user-tickets-spacer">/ UPCOMING EVENTS</div>
+            <div className="red-text medium-text user-tickets-spacer upcoming">/ UPCOMING EVENTS</div>
           </div>
-          <div className="ticket-index-columns mid-grey-text">
-            <div>Event date</div>
-            <div>Event title</div>
-            <div>Location</div>
-            <div>Tickets</div>
-          </div>
-          <div>
-            {tickets.map(ticket =>
-              <TicketIndexItem
-                key={ticket.id}
-                ticket={ticket}
-              />
-            )}
-          </div>
-          </div>
+          <table className="ticket-table">
+            <thead>
+              <tr>
+                <th className="dark-text header form-label">Event date</th>
+                <th className="dark-text header form-label">Event title</th>
+                <th className="dark-text header form-label">Location</th>
+                <th className="dark-text header form-label">Tickets</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tickets.map(ticket => (
+                <TicketIndexItem key={ticket.id} ticket={ticket} />
+              ))}
+            </tbody>
+          </table>
         </div>
-
+      </div>
     </div>
-  )
+  );
 }

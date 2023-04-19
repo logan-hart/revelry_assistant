@@ -43,7 +43,7 @@ export default function Step1({name, setName, venue, setVenue}) {
                             <div>
                                 <div>
                                     <div className='form-label'>Venue <span className="red-text">*</span></div>
-                                    <input className='form-input full-input' value={venue}onChange={(e) => setVenue(e.target.value)}></input>
+                                    <input className='form-input full-input' value={venue} onChange={(e) => setVenue(e.target.value)}></input>
                                     <div className='form-label errors'>possible errors {venue}</div>
                                 </div>
                             </div>

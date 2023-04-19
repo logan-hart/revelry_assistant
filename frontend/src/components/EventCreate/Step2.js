@@ -21,12 +21,12 @@ export default function Step2({lineup, setLineup, genres, setGenres}) {
                         <div className='form-label'>Give attendees a flavour of the genres that will be played at the event.</div>
                         <div className='form-label'> Genres</div>
                             <select id="genre-dropdown" onChange={(e) => setGenres(e.target.value)}>
-                                <option value={genres} className='dropdown'></option>
+                                <option value={genres.first} className='dropdown'></option>
                                     {genreOptions.map((genre) => <option key={genre} value={genre}>{genre}
                                 </option>)}
                             </select>
                             <select id="genre-dropdown" onChange={(e) => setGenres(e.target.value)}>
-                                <option value={genres} className='dropdown'></option>
+                                <option value={genres.last} className='dropdown'></option>
                                     {genreOptions.map((genre) => <option key={genre} value={genre}>{genre}
                                 </option>)}
                             </select>

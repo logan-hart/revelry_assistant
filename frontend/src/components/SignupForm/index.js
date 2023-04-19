@@ -38,13 +38,9 @@ const SignupForm = () => {
             setEmail(sessionUser.email)
             setConfirmEmail(sessionUser.email)
             setUsername(sessionUser.username)
-            setPassword(sessionUser.password)
-            setBirthDay(sessionUser.birthDay)
-            setBirthMonth(sessionUser.birthMonth)
-            setBirthYear(sessionUser.birthYear)
             setSubscribed(sessionUser.subscribed)
         }
-    })
+    }, [])
 
     const toggleShowPassword= (e) => {
         e.preventDefault()
@@ -88,10 +84,12 @@ const SignupForm = () => {
                 else setErrors([res.statusText]);
               });
           } else if (type === 'Edit account') {
-            let userId =sessionUser.id
             debugger
+            let userId = sessionUser.id
+            let age = sessionUser.age
             dispatch(userActions.updateUser({ userId, firstname, surname, gender, email, username, password, age, subscribed }))
-              .then(() => {
+            .then(() => dispatch(sessionActions.login({ email, password })))
+                .then(() => {
                 history.push(`/events`)
             })
               .catch(async (res) => {
@@ -149,7 +147,7 @@ const SignupForm = () => {
                                                 className="form-input"
                                                 type="text"
                                                 value= {firstname}
-                                                onChange={(e) => setFirstname(e.target.value)}   
+                                                onChange={e => setFirstname(e.target.value)}   
                                             />
                                             <div className="errors">First name is required</div>
                                         </div>
@@ -220,51 +218,58 @@ const SignupForm = () => {
                                             </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div className="signup-section birthday-section">
-                                        <h3>Birthday</h3>
-                                            <div className="birthday-options">
-                                                <div className="stack">
-                                                    <label className="form-label">Day</label>
-                                                        <input 
-                                                            className="form-input"
-                                                            type='text'
-                                                            value={birthDay}
-                                                            onChange={(e) => setBirthDay(e.target.value)}
-                                                        />
+                                    {type === 'Register' ? (
+                                        <>
+                                            <div>
+                                                <div className="signup-section birthday-section">
+                                                    <h3>Birthday</h3>
+                                                        <div className="birthday-options">
+                                                            <div className="stack">
+                                                                <label className="form-label">Day</label>
+                                                                    <input 
+                                                                        className="form-input"
+                                                                        type='text'
+                                                                        value={birthDay}
+                                                                        onChange={(e) => setBirthDay(e.target.value)}
+                                                                    />
+                                                            </div>
+                                                            <div className='stack'>
+                                                                <label className="form-label">Month</label>
+                                        
+                                                                    <input 
+                                                                        className="form-input"
+                                                                        type='text'
+                                                                        value={birthMonth}
+                                                                        onChange={(e) => setBirthMonth(e.target.value)}
+                                                                    /> 
+                                                            </div>  
+                                                            <div className="stack">
+                                                                <label className="form-label">Year</label>
+                                        
+                                                                    <input 
+                                                                        className="form-input"
+                                                                        type='text'
+                                                                        value={birthYear}
+                                                                        onChange={(e) => setBirthYear(e.target.value)}
+                                                                    />
+                                                            </div>
+                                                    </div>
                                                 </div>
-                                                <div className='stack'>
-                                                    <label className="form-label">Month</label>
-                            
-                                                        <input 
-                                                            className="form-input"
-                                                            type='text'
-                                                            value={birthMonth}
-                                                            onChange={(e) => setBirthMonth(e.target.value)}
-                                                        /> 
-                                                </div>  
-                                                <div className="stack">
-                                                    <label className="form-label">Year</label>
-                            
-                                                        <input 
-                                                            className="form-input"
-                                                            type='text'
-                                                            value={birthYear}
-                                                            onChange={(e) => setBirthYear(e.target.value)}
-                                                        />
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            </div>
 
-                                <h3>Join the RA community</h3>
-                                <div>
-                                    <p id="tandcs"> Subscribe to the weekly RA Newsletter to receive updates on the latest news and events.</p>
-                                    <input onClick={(e) => setSubscribed(!subscribed)} type='checkbox' value="subscribed" className="checkbox" defaultChecked/>
-                                    <label htmlFor='subscribed' className="form-label">Subscribe</label>
-                                </div>
-                                <button className="button red-button" id="signup-submit" type="Submit">Submit</button>
+                                            <h3>Join the RA community</h3>
+                                            <div>
+                                                <p id="tandcs"> Subscribe to the weekly RA Newsletter to receive updates on the latest news and events.</p>
+                                                <input onClick={(e) => setSubscribed(!subscribed)} type='checkbox' value="subscribed" className="checkbox" defaultChecked/>
+                                                <label htmlFor='subscribed' className="form-label">Subscribe</label>
+                                            </div>
+                                        </>
+                                ) : null}
+                                <button className="button red-button" id="signup-submit" type="Submit">{type === 'Register' ? 'Submit' : 'Update'}</button>
+                                {type === 'Register' ?
+                                
                                 <p id="tandcs">By registering, you are indicating that you have read and agree to the Terms of Use and Privacy Policy</p>
+                            : null }
                             </form>
                         </div>
                         <div id="register-column-2">

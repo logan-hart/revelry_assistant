@@ -91,12 +91,7 @@ ApplicationRecord.transaction do
       "https://imgproxy.ra.co/_/quality:66/w:1500/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vMTcxMDRiYjc3MTU3MDhhNTYzNDgwY2VkNjBmNTA4NWFmZDIzYmY4Ni5qcGc=",
       "https://imgproxy.ra.co/_/quality:66/w:1500/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vYWI3YzVjZDNmZTUxZjkwYzc2MWY1MGVmNDE4MWVkNTgyNzc5NjFjOS5qcGc=",
       "https://imgproxy.ra.co/_/quality:66/w:1500/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vYWYzYzdkYjVmZTA0Zjg3OTQ2Y2QyY2M2ZjNlNjZlOWQzNTFiMjQ0NS5qcGc=",
-      "https://imgproxy.ra.co/_/quality:66/w:1500/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vNWFlYzU5MjE1ZWRkMGI3ZjBhOTQ2NzIzMjg2ZGM5Nzg0ODcyNjUyZS5qcGc=",
-
-
-
-
-
+      "https://imgproxy.ra.co/_/quality:66/w:1500/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vNWFlYzU5MjE1ZWRkMGI3ZjBhOTQ2NzIzMjg2ZGM5Nzg0ODcyNjUyZS5qcGc="
     ]
 
     genres_options=['Acid', 'Afrobeat', 'Baile Funk', 'Bass', 'Breakcore', 'Club', 'Dancehall', 'Deep House', 'Dembow', 'Disco', 'Drum & Bass', 'Dub', 'Electro', 'Experimental', 'Funk/Soul', 'Hip-Hop', 'House', 'Italo Disco', 'Jungle', 'Latin Bass', 'Minimal', 'Neo Perreo', 'Pop', 'Progressive House', 'Reggaeton', 'R&B', 'Tech House', 'Techno', 'Trance']

@@ -10,9 +10,20 @@
     background-color: #131313;
 }
 
+.ticket-table{
+    margin-top: 30px;
+    margin-bottom: 30px
+}
 
-.ticket-index-columns{
-    display: flex;
+.header{
+    text-align: left;
+    border-top: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.upcoming{
+    margin-top: 20px;
 }
 
 .ticket-index-items{
@@ -20,4 +31,24 @@
     border-top: 1px solid grey;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+td, th {
+    border-top: 1px solid grey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#large-icon{
+    font-size: 20px;
+}
+
+.icon-text-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+.text {
+    font-size: 10px; /* or whatever size you want */
+    margin-left: 10px; /* adjust as needed */
 }
