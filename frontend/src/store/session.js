@@ -1,5 +1,6 @@
 import { Redirect } from "react-router-dom";
 import csrfFetch from "./csrf.js";
+import { addUser } from "./user.js";
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
@@ -84,6 +85,9 @@ const sessionReducer = (state = initialState, action) => {
       return { ...state, user: action.payload };
     case REMOVE_CURRENT_USER:
       return { ...state, user: null };
+    case ADD_USER:
+      debugger
+      return { ...state, user:action.payload};
     default:
       return state;
   }

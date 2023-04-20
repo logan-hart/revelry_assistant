@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { getEvents, getEventsByDate, getPopularEvents, fetchEvents } from '../../store/events'
+import { addUser } from '../../store/user'
 import EventIndexItem from './EventIndexItem'
 import PopularEvent from './PopularEvent'
 import SubNav from './SubNav/index.js'
@@ -18,6 +19,10 @@ function EventsIndex(){
     useEffect(() => {
         dispatch(fetchEvents())
     },[dispatch,])
+
+    useEffect(() => {
+        dispatch(addUser(sessionUser.id))
+    }, [sessionUser, dispatch])
 
     useEffect(() => {
         window.scrollTo(0, 0);

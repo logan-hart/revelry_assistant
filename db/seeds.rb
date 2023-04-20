@@ -26,7 +26,8 @@ ApplicationRecord.transaction do
       username: 'DemoUser', 
       password: 'password',
       age: 21,
-      subscribed: true
+      subscribed: true,
+      gender: 'Dont want to say'
     )
   
     # More users

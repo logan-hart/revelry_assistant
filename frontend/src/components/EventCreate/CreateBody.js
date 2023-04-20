@@ -33,7 +33,6 @@ function CreateBody({event, type}) {
     const [media, setMedia] = useState('')
     const [errors, setErrors] = useState([])
 
-    let eventId
     
     useEffect(() => {
         if (event) {

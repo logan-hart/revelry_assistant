@@ -10,6 +10,7 @@ import csrfFetch, { restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session'
 import * as eventActions from './store/events'
 import * as ticketActions from './store/tickets'
+import * as userActions from './store/user'
 
 
 const store = configureStore();
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions
   window.eventActions = eventActions
   window.ticketActions = ticketActions
+  window.userActions = userActions
 }
 
 

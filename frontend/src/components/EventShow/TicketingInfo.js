@@ -4,16 +4,19 @@ import { Link } from "react-router-dom"
 function TicketingInfo({event}){ 
     const [ticketNum, setTicketNum] = useState(1)
     const [max, setMax] = useState(false)
+    const [buyLimit, setBuyLimit] = useState(false)
+
 
     function formatCost(cost) {
         return '$' +`${cost * ticketNum}` + '.00'
     }
 
     function handleTicketIncrease(e){
-        if (ticketNum < event.availableTickets-event.ticketsSold){
+        if (ticketNum < event.availableTickets - event.ticketsSold && ticketNum < 6){
             setTicketNum(prevNum => prevNum + 1)
-        }
-        else {
+        } else if (ticketNum === 6) {
+            setBuyLimit(true)
+        } else {
             setMax(true)
         }
     }
@@ -21,6 +24,7 @@ function TicketingInfo({event}){
     function handleTicketDecrease(e){
         if (ticketNum > 1){
             setMax(false)
+            setBuyLimit(false)
             setTicketNum(prevNum => prevNum - 1)
         }
     }
@@ -38,9 +42,7 @@ function TicketingInfo({event}){
                         <div>EarlyBird</div>
                         <div>{formatCost(event.cost)}</div>
                     </div>
-                    <div className='form-label dark-text event-show-divider'>Ticket sales end on (End Sales Date)</div>
-
-
+                    {/* <div className='form-label dark-text event-show-divider'>Ticket sales end on (End Sales Date)</div> */}
                 </div>
                 <div className="show-action-buy event-show-divider">
                     <div className='event-show-ticket-buttons'>
@@ -50,7 +52,12 @@ function TicketingInfo({event}){
                     </div>
                     {max ? 
                         <div className="white-text">
-                            There are only {event.availableTickets-event.ticketsSold} left for this event!
+                            There are only {event.availableTickets-event.ticketsSold} tickets left for this event!
+                        </div>
+                    : null}
+                    {buyLimit? 
+                        <div className="red-text top-spacer">
+                            * You may only purchase 6 tickets for this event *
                         </div>
                     : null}
                     <div>

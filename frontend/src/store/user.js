@@ -13,10 +13,20 @@ export const addUsers = (users) => ({
   payload: users
 });
 
+export const fetchUser = userId => async(dispatch) => {
+  const response = await csrfFetch(`/api/user/${userId}`)
+  
+  if (response.ok) {
+      const data = await response.json()
+      dispatch(addUser(data.user))
+      return response
+  } 
+}
+
 export const updateUser = user => async (dispatch) => {
   const response = await csrfFetch(`/api/user/${user.id}`, {
     method: 'PATCH',
-    body: JSON.stringify(user),
+    body: JSON.stringify({user: user}),
     headers: {
       'Content-Type': 'application/json'
     }
@@ -27,7 +37,6 @@ export const updateUser = user => async (dispatch) => {
     dispatch(addUser(user))
   }
 }
-
 
 function usersReducer(state = {}, action) {
   Object.freeze(state);

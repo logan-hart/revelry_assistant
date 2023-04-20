@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import * as userActions from "../../store/user"
 import './SignupForm.css'
 
 const SignupForm = () => {
+    const dispatch = useDispatch();
+    const history = useHistory()
     const [firstname, setFirstname] = useState('')
     const [surname, setSurname] = useState('')
     const [gender, setGender] = useState('')
@@ -21,9 +22,8 @@ const SignupForm = () => {
     const [birthYear, setBirthYear] = useState('');
     const [subscribed, setSubscribed] = useState(true)
     const [errors, setErrors] = useState([]);
-    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const history = useHistory()
+    const user = useSelector(state => state.user);
 
     let type
     sessionUser ? type = 'Edit account' : type ='Register'
@@ -46,7 +46,6 @@ const SignupForm = () => {
         e.preventDefault()
         setShowPassword(showPassword ? false : true);
     };
-
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -84,11 +83,9 @@ const SignupForm = () => {
                 else setErrors([res.statusText]);
               });
           } else if (type === 'Edit account') {
-            debugger
             let userId = sessionUser.id
             let age = sessionUser.age
             dispatch(userActions.updateUser({ userId, firstname, surname, gender, email, username, password, age, subscribed }))
-            .then(() => dispatch(sessionActions.login({ email, password })))
                 .then(() => {
                 history.push(`/events`)
             })
@@ -162,9 +159,9 @@ const SignupForm = () => {
                                         </div>
                                         <div className="stack">
                                                 <label className="form-label"> Gender</label>
-                                                <select id="gender-dropdown" onChange={(e) => setGender(e.target.value)}>
-                                                    <option value={gender} className='dropdown'></option>
-                                                        {genderOptions.map((gender) => <option key={gender} value={gender}>{gender}</option>)}
+                                                <select id="gender-dropdown" value={gender} onChange={(e) => setGender(e.target.value)}>
+                                                <option value="" className='dropdown'>Select a gender</option>
+                                                    {genderOptions.map((gender) => <option key={gender} value={gender}>{gender}</option>)}
                                                 </select>
 
                                         </div>

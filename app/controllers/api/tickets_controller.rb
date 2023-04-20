@@ -13,6 +13,7 @@ class Api::TicketsController < ApplicationController
     end
 
     def create
+        debugger
         @ticket = Ticket.new(ticket_params)
 
         if @ticket.save
@@ -23,7 +24,6 @@ class Api::TicketsController < ApplicationController
     end
 
     def update
-
     end
 
     def destroy

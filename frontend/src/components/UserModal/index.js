@@ -41,7 +41,7 @@ function UserModal({open, onClose}) {
                     <Link className="link" onClick={() => {onClose()}} to={`/users/${sessionUser.id}/events`}>Promoted events</Link>
                     <Link className="link" onClick={() => {onClose()}} to={`/users/${sessionUser.id}/tickets`}>My tickets</Link>
                     {/* <Link className="link" onClick={() => {onClose()}} to="/events">Following</Link> */}
-                    {/* <Link className="link" onClick={() => {onClose()}} to={`/signup/${sessionUser.id}`}>Edit account</Link> */}
+                    <Link className="link" onClick={() => {onClose()}} to={`/signup/${sessionUser.id}`}>Edit account</Link>
                     <Link className="link" onClick={() => {
                         onClose() 
                         logout()}} to='/events'>Logout</Link>

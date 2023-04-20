@@ -43,9 +43,10 @@ export const fetchUserTickets= (userId) => async(dispatch) => {
 }
 
 export const createTicket = (ticket) => async dispatch => {
+    debugger
     const response = await csrfFetch("/api/tickets", {
       method: "POST",
-      body: JSON.stringify(ticket)
+      body: JSON.stringify({ticket: ticket})
     });
     const data = await response.json();
     dispatch(addTicket(data.ticket));
