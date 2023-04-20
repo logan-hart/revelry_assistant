@@ -64,7 +64,7 @@
 
 .event-show-divider{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
@@ -82,6 +82,15 @@
     justify-content: space-between;
     color: white;
     background-color: rgb(255, 72, 72);
+    padding: 10px;
+}
+
+.sold-out-ticket-grid{
+    display:flex;
+    justify-content: space-between;
+    color: #666666;
+    background-color: #131313;
+    text-decoration: line-through;
     padding: 10px;
 }
 
@@ -202,4 +211,11 @@
 .buy-button{
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.sold-out{
+    color: rgb(255, 72, 72);
+    font-size: 1.3em;
+    text-align: center;
+    width: 60%;
 }

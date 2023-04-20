@@ -13,13 +13,15 @@ class Api::TicketsController < ApplicationController
     end
 
     def create
-        debugger
         @ticket = Ticket.new(ticket_params)
-
+      
         if @ticket.save
-            render :show
+          event = Event.find(@ticket.event_id)
+          event.tickets_sold += @ticket.num_tickets
+          event.save
+          render :show
         else
-            render json: {errors: @review.errors.full_messages}, status: :unprocessable_entity
+          render json: {errors: @ticket.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

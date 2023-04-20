@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getEvent } from '../../store/events';
 import { createTicket } from '../../store/tickets';
@@ -9,11 +9,12 @@ import "./BuyTickets.css"
 export default function BuyTickets() {
     const dispatch = useDispatch()
     const location = useLocation();
+    const history = useHistory()
     const params = new URLSearchParams(location.search);
-    const [ticketNum, setTicketNum] = useState(parseInt(params.get('ticketNum')));
     const user = useSelector(state => state.session.user)
     const eventId = params.get('eventId');
     const event = useSelector(getEvent(eventId))
+    const [ticketNum, setTicketNum] = useState(parseInt(params.get('ticketNum')));
     const [max, setMax] = useState(false)
     const [buyLimit, setBuyLimit] = useState(false)
 
@@ -49,8 +50,10 @@ export default function BuyTickets() {
         let userId = user.id
         let numTickets = ticketNum
         const ticket= { userId, eventId, numTickets };
-        debugger
-        dispatch(createTicket(ticket));
+        dispatch(createTicket(ticket))
+        .then(() => {
+            history.push(`/users/${user.id}/tickets`)
+        })
     }
 
     return (
