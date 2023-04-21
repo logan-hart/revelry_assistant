@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
     class Api::EventsController < ApplicationController
 
-        before_action :require_logged_in, only: [:create, :update, :destroy]
+        # before_action :require_logged_in, only: [:create, :update, :destroy]
 
         def index
 
@@ -28,10 +28,11 @@ class Api::EventsController < ApplicationController
         end
         
         def update
-
+            debugger
             @event = Event.find(params[:event_id])
 
             if @event.update(event_params)
+                debugger
               render :show
             else
               render json: @event.errors.full_messages, status: 422
@@ -67,7 +68,9 @@ class Api::EventsController < ApplicationController
                 :promotional_links,
                 :media,
                 :available_tickets,
-                :promoter_id,
+                :venue,
+                :links,
+                :promoter
                 )
         end
     end

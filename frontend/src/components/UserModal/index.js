@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
-import ReactDom from 'react-dom';
+import { useState, useEffect } from 'react';
+import reactDom from 'react-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -30,7 +29,7 @@ function UserModal({open, onClose}) {
     }
     
     if (!open) return null
-    return ReactDom.createPortal (
+    return reactDom.createPortal (
         <>
             <div id="user-modal-overlay"></div>
             <button onClick={onClose} id="close-modal">&times;</button>

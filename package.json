@@ -21,5 +21,13 @@
   "homepage": "https://github.com/logan-hart/revelry_associate#readme",
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "react-datepicker": "^4.11.0",
+    "react-dates": "^21.8.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

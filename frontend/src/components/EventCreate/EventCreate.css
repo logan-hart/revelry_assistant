@@ -76,8 +76,6 @@
     width: 100%;
 }
 
-
-
 .create-subheader{
     margin-bottom: 30px;
 }
@@ -85,3 +83,9 @@
 .create-category{
     margin-bottom: 60px;
 }
+
+textarea{
+    padding-left: 25px;
+    padding-top: 10px;
+}
+

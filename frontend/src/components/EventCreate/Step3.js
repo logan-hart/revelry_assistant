@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function Step3({details, setDetails, cost, setCost, ageMinimum, setAgeMinimum}) {
     const ageOptions = ['18+', '19+', '20+', '21+']

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTickets, fetchUserTickets, fetchTicketEvents } from '../../store/tickets';

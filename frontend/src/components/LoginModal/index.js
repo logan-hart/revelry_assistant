@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ReactDom from 'react-dom';
+import { useState, useEffect } from 'react';
+import reactDom from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
@@ -66,7 +66,7 @@ function LoginModal({open, onClose}) {
     }
     
     if (!open) return null
-    return ReactDom.createPortal(
+    return reactDom.createPortal(
         <>
             <div id="modal-overlay"></div>
             <button onClick={onClose} id="close-modal">&times;</button>

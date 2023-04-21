@@ -52,16 +52,28 @@ textarea{
     margin-bottom: 10px
 }
 
-select{
+select {
     border: none;
     margin-bottom: 10px;
     background-color: #F2F2F2;
     border-radius: 20px;
-    size: 4;
+    padding-left: 15px;
     height: 36px;
     width: 186.4px;
     margin-right: 20px; 
-}
+  }
+  
+  select option {
+    background-color: #F2F2F2;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  
+  select option:hover {
+    background-color: #333;
+    color: #F2F2F2;
+  }
 
 select.selected{
     background-color: #F2F2F2;

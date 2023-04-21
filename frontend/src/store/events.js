@@ -95,7 +95,7 @@ export const fetchTicketEvents = (promoterId) => async(dispatch) =>{
 export const createEvent = (event) => async dispatch => {
     const response = await csrfFetch('/api/events/', {
         method: 'POST',
-        body: JSON.stringify(event),
+        body: JSON.stringify({event: event}),
         headers: {
             'Content-Type': 'application/json'
         }

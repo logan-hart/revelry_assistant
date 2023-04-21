@@ -46,8 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_142233) do
     t.string "name", null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
-    t.time "start_time", null: false
-    t.time "end_time", null: false
+    t.string "start_time", null: false
+    t.string "end_time", null: false
     t.string "lineup", array: true
     t.string "genres", array: true
     t.string "details"

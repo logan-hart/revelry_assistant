@@ -1,6 +1,5 @@
-import React from 'react'
 
-export default function Step4({promoter, setPromoter, images, setImages, links, setLinks, media, setMedia}) {
+export default function Step4({promoter, setPromoter, images, setImages, promotionalLinks, setPromotionalLinks, media, setMedia}) {
 
   return (
     <div>
@@ -29,13 +28,13 @@ export default function Step4({promoter, setPromoter, images, setImages, links, 
                     <div className="step-divider">      
                         <div className="half-input">
                             <div className='form-label'>Website name</div>
-                            <input className='form-input full-input' onChange={(e)=> setLinks(e.target.value) } value={links}></input>
-                            <div className='form-label errors'>possible errors {links}</div>
+                            <input className='form-input full-input' onChange={(e)=> setPromotionalLinks(e.target.value) } value={promotionalLinks}></input>
+                            <div className='form-label errors'>possible errors {promotionalLinks}</div>
                         </div>  
                         <div className="half-input">
                             <div className='form-label'>Website URL</div>
-                            <input className='form-input full-input' onChange={(e)=> setLinks(e.target.value) } value={links}></input>
-                            <div className='form-label errors'>possible errors {links}</div>
+                            <input className='form-input full-input' onChange={(e)=> setPromotionalLinks(e.target.value) } value={promotionalLinks}></input>
+                            <div className='form-label errors'>possible errors {promotionalLinks}</div>
                         </div>            
                     </div>
                 </div>

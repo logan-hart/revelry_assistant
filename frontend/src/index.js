@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import reactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, } from 'react-router-dom';
 import './reset.css';
@@ -37,7 +37,7 @@ function Root() {
 }
 
 const renderApplication = () => {
-  ReactDOM.render(
+  reactDOM.render(
     <React.StrictMode>
       <Root />
     </React.StrictMode>,

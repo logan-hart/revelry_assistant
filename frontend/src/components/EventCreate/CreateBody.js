@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
+import { useSelector } from "react-redux"
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 import Step3 from "./Step3"
@@ -15,6 +16,7 @@ import * as eventActions from "../../store/events";
 function CreateBody({event, type}) {
     const dispatch = useDispatch()
     const history = useHistory();
+    const userId = useSelector(state => state.session.user.id)
     const [step, setStep] = useState(1)
     const [name, setName] = useState('')
     const [startDate, setStartDate] = useState('')
@@ -27,9 +29,9 @@ function CreateBody({event, type}) {
     const [details, setDetails] = useState('')
     const [cost, setCost] = useState('')
     const [ageMinimum, setAgeMinimum] = useState('')
-    const [promoter, setPromoter] = useState('')
+    const [promoter, setPromoter] = useState(userId)
     const [images, setImages] = useState('')
-    const [links, setLinks] = useState('')
+    const [promotionalLinks, setPromotionalLinks] = useState('')
     const [media, setMedia] = useState('')
     const [errors, setErrors] = useState([])
 
@@ -49,7 +51,7 @@ function CreateBody({event, type}) {
             setAgeMinimum(event.ageMinimum)
             setPromoter(event.promoter)
             setImages(event.images)
-            setLinks(event.links)
+            setPromotionalLinks(event.promotionalLinks)
             setMedia(event.media)
         }
     }, [event])
@@ -72,13 +74,13 @@ function CreateBody({event, type}) {
     function renderStep(step) {
         switch (step) {
             case 1:
-                return <Step1 name={name} setName={setName} venue={venue} setVenue={setVenue}/>;
+                return <Step1 name={name} setName={setName} venue={venue} setVenue={setVenue} startTime={startTime} endTime={endTime} setStartTime={setStartTime} setEndTime={setEndTime} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate}/>;
             case 2:
                 return <Step2 lineup={lineup} setLineup={setLineup} genres={genres} setGenres={setGenres}/>;
             case 3:
                 return <Step3 details={details} setDetails={setDetails} cost={cost} setCost={setCost} ageMinimum={ageMinimum} setAgeMinimum={setAgeMinimum}/>;
             case 4:
-                return <Step4 promoter={promoter} setPromoter={setPromoter} images={images} setImages={setImages} links={links} setLinks={setLinks} media={media} setMedia={setMedia}/>;
+                return <Step4 promoter={promoter} setPromoter={setPromoter} images={images} setImages={setImages} promotionalLinks={promotionalLinks} setPromotionalLinks={setPromotionalLinks} media={media} setMedia={setMedia}/>;
         }
     }
 
@@ -132,9 +134,10 @@ function CreateBody({event, type}) {
         e.preventDefault()
 
         if (type === 'Create'){
-            
+            let promoterId = parseInt(promoter)
+            debugger
             setErrors([]);
-            dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media}))
+            dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, promotionalLinks, media}))
             
                 .catch(async (res) => {
                 let data;
@@ -153,7 +156,7 @@ function CreateBody({event, type}) {
             setErrors([]);
             let eventId = event.id
 
-            dispatch(eventActions.updateEvent({ eventId, name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, links, media }))
+            dispatch(eventActions.updateEvent({ eventId, name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, promotionalLinks, media }))
             .then(() => {
               history.push(`/events/${eventId}`);
             })
