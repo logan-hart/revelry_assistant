@@ -20,9 +20,9 @@ function EventsIndex(){
         dispatch(fetchEvents())
     },[dispatch,])
 
-    useEffect(() => {
-        dispatch(addUser(sessionUser.id))
-    }, [sessionUser, dispatch])
+    // useEffect(() => {
+    //     dispatch(addUser(sessionUser.id))
+    // }, [sessionUser, dispatch])
 
     useEffect(() => {
         window.scrollTo(0, 0);

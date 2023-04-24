@@ -135,7 +135,6 @@ function CreateBody({event, type}) {
 
         if (type === 'Create'){
             let promoterId = parseInt(promoter)
-            debugger
             setErrors([]);
             dispatch(eventActions.createEvent({ name, startDate, startTime, endDate, endTime, venue, lineup, genres, details, cost, ageMinimum, promoter, images, promotionalLinks, media}))
             

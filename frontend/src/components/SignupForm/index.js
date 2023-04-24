@@ -83,9 +83,9 @@ const SignupForm = () => {
                 else setErrors([res.statusText]);
               });
           } else if (type === 'Edit account') {
-            let userId = sessionUser.id
+            let id= sessionUser.id
             let age = sessionUser.age
-            dispatch(userActions.updateUser({ userId, firstname, surname, gender, email, username, password, age, subscribed }))
+            dispatch(userActions.updateUser({ id, firstname, surname, gender, email, username, password, age, subscribed }))
                 .then(() => {
                 history.push(`/events`)
             })

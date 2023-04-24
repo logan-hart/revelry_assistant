@@ -28,11 +28,8 @@ class Api::EventsController < ApplicationController
         end
         
         def update
-            debugger
             @event = Event.find(params[:event_id])
-
             if @event.update(event_params)
-                debugger
               render :show
             else
               render json: @event.errors.full_messages, status: 422

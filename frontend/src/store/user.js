@@ -1,7 +1,7 @@
 import csrfFetch from "./csrf";
 
-const ADD_USER = 'users/addUser';
-const ADD_USERS = 'users/addUsers';
+export const ADD_USER = 'users/addUser';
+export const ADD_USERS = 'users/addUsers';
 
 export const addUser = (user) => ({
   type: ADD_USER,
@@ -24,7 +24,7 @@ export const fetchUser = userId => async(dispatch) => {
 }
 
 export const updateUser = user => async (dispatch) => {
-  const response = await csrfFetch(`/api/user/${user.id}`, {
+  const response = await csrfFetch(`/api/users/${user.id}`, {
     method: 'PATCH',
     body: JSON.stringify({user: user}),
     headers: {
