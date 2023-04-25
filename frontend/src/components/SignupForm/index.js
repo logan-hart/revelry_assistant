@@ -23,7 +23,6 @@ const SignupForm = () => {
     const [subscribed, setSubscribed] = useState(true)
     const [errors, setErrors] = useState([]);
     const sessionUser = useSelector(state => state.session.user);
-    const user = useSelector(state => state.user);
 
     let type
     sessionUser ? type = 'Edit account' : type ='Register'
@@ -40,7 +39,7 @@ const SignupForm = () => {
             setUsername(sessionUser.username)
             setSubscribed(sessionUser.subscribed)
         }
-    }, [])
+    }, [sessionUser])
 
     const toggleShowPassword= (e) => {
         e.preventDefault()
@@ -62,12 +61,23 @@ const SignupForm = () => {
         return age;
     }
 
+    function errorHandling (age) {
+        setErrors([])
+        console.log([firstname, surname, email, confirmEmail, password, birthDay, birthMonth, birthYear])
+        firstname.length === 0 ? setErrors(errors.push('First name is required')) : <></>
+        surname.length === 0 ? setErrors(errors.push('First name is required')) : <></>
+        email !== confirmEmail ? setErrors(prevErrors => prevErrors.push('Email addresses must match')) : <></>
+        password.length < 5 ? setErrors(prevErrors => prevErrors.push('Password must be at least 6 characters')) : <></>
+        age < 18 ? setErrors(prevErrors => prevErrors.push('You must be over 18 to use this site')) : <></>
+        debugger
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        let age = getAge();
-      
-        if (email === confirmEmail) {
-          setErrors([]);
+        let age = getAge()
+        errorHandling(age)
+        console.log(errors)
+        if (errors.length === 0) {
           if (type === 'Register') {
             dispatch(sessionActions.signup({ firstname, surname, gender, email, username, password, age, subscribed }))
               .then(() => dispatch(sessionActions.login({ email, password })))
@@ -83,38 +93,32 @@ const SignupForm = () => {
                 else setErrors([res.statusText]);
               });
           } else if (type === 'Edit account') {
-            let id= sessionUser.id
-            let age = sessionUser.age
-            dispatch(userActions.updateUser({ id, firstname, surname, gender, email, username, password, age, subscribed }))
-                .then(() => {
-                history.push(`/events`)
-            })
-              .catch(async (res) => {
-                let data;
-                try {
-                  data = await res.clone().json();
-                } catch {
-                  data = await res.text();
-                }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
-              });
+            if (email !== 'demo@user.com'){
+                setErrors(prevErrors => prevErrors.concat(['Email update unavailable for demo account']))
+            } else {
+                let id= sessionUser.id
+                let age = sessionUser.age
+                dispatch(userActions.updateUser({ id, firstname, surname, gender, email, username, password, age, subscribed }))
+                    .then(() => {
+                    history.push(`/events`)
+                })
+                  .catch(async (res) => {
+                    let data;
+                    try {
+                      data = await res.clone().json();
+                    } catch {
+                      data = await res.text();
+                    }
+                    if (data?.errors) setErrors(data.errors);
+                    else if (data) setErrors([data]);
+                    else setErrors([res.statusText]);
+                  });
+            }
           }
-        } else {
-          setErrors(['Email addresses must match']);
-        }
+        } 
       };
 
-    //   if (sessionUser) return <Redirect to="/events" />;
-
-    const errorsDisplay = () => {
-        if (!errors) {
-            return <></>
-        } else {
-            return <div>{errors}</div>
-        }
-    }  
+   
 
     return (
         <>
@@ -132,9 +136,6 @@ const SignupForm = () => {
                     <div id="columns">
                         <div id="register-column-1">
                             <form onSubmit={handleSubmit} id='register-form'>
-                                <ul>
-                                    {errors.map(error => <li key={error}>{error}</li>)}
-                                </ul>
                                 <div className="signup-section aboutyou-section">
                                     <h3>About You</h3>
                                     <div className="column">
@@ -146,7 +147,6 @@ const SignupForm = () => {
                                                 value= {firstname}
                                                 onChange={e => setFirstname(e.target.value)}   
                                             />
-                                            <div className="errors">First name is required</div>
                                         </div>
                                         <div className="stack">
                                             <label className="form-label">Surname<span className="red-text">*</span></label>
@@ -160,12 +160,13 @@ const SignupForm = () => {
                                         <div className="stack">
                                                 <label className="form-label"> Gender</label>
                                                 <select id="gender-dropdown" value={gender} onChange={(e) => setGender(e.target.value)}>
-                                                <option value="" className='dropdown'>Select a gender</option>
+                                                <option value="" className='dropdown'></option>
                                                     {genderOptions.map((gender) => <option key={gender} value={gender}>{gender}</option>)}
                                                 </select>
 
                                         </div>
                                     </div>
+                                    {/* {errors?.includes('First name is required') ? <div className="errors">* First name is required</div> : null} */}
                                 </div>
                                 <div>
                                     <div>
@@ -179,6 +180,8 @@ const SignupForm = () => {
                                                             value= {email}
                                                             onChange={(e) => setEmail(e.target.value)}   
                                                         />
+                                                        {/* {errors.include('Email addresses must match') ? <div className="errors">* Email addresses must match</div> : null}
+                                                        {errors.include('Email update unavailable for demo account') ? <div className="errors">*Email update unavailable for demo account</div> : null} */}
                                                 </div>
                                                 <div className="stack">
                                                     <label className="form-label">Confirm email address<span className="red-text">*</span></label>
@@ -197,6 +200,7 @@ const SignupForm = () => {
                                                             value= {username}
                                                             onChange={(e) => setUsername(e.target.value)}   
                                                         />
+
                                                 </div>
                                                 {type ==='Register' ? ( 
                                                 <div className="stack">

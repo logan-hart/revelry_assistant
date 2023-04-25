@@ -3,6 +3,7 @@ import reactDom from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import * as userActions from '../../store/user';
 import './LoginModal.css'
 
 function LoginModal({open, onClose}) {

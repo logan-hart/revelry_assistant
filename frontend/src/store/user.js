@@ -18,6 +18,7 @@ export const fetchUser = userId => async(dispatch) => {
   
   if (response.ok) {
       const data = await response.json()
+      debugger
       dispatch(addUser(data.user))
       return response
   } 
@@ -43,7 +44,7 @@ function usersReducer(state = {}, action) {
   switch (action.type) {
     case ADD_USER:
       const user = action.payload;
-      return { ...state, [user.id]: user };
+      return { ...state, user: user };
     case ADD_USERS:
       const users = action.payload;
       return { ...state, ...users };

@@ -16,9 +16,7 @@ li {
     height: inherit;
 }
 
-.errors{
-    display: none;
-}
+
 
 /* div{
     border: 1px solid red;
@@ -226,6 +224,7 @@ button > span {
 }
 
 .errors{
+    font-size: 11px;
     color:rgb(255, 72, 72);
     margin-bottom: 25px;
 }
