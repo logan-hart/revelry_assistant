@@ -69,7 +69,6 @@ const SignupForm = () => {
         email !== confirmEmail ? setErrors(prevErrors => prevErrors.push('Email addresses must match')) : <></>
         password.length < 5 ? setErrors(prevErrors => prevErrors.push('Password must be at least 6 characters')) : <></>
         age < 18 ? setErrors(prevErrors => prevErrors.push('You must be over 18 to use this site')) : <></>
-        debugger
     }
 
     const handleSubmit = (e) => {

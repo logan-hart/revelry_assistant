@@ -18,7 +18,6 @@ export const fetchUser = userId => async(dispatch) => {
   
   if (response.ok) {
       const data = await response.json()
-      debugger
       dispatch(addUser(data.user))
       return response
   } 

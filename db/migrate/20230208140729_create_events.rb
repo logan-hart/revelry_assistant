@@ -12,6 +12,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.integer :cost, null:false
       t.integer :age_minimum, null:false
       t.string :images
+      t.string :promotional_name
       t.string :promotional_links
       t.string :media
       t.integer :available_tickets

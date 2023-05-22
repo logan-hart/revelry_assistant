@@ -14,7 +14,7 @@ export default function Step4({promoter, setPromoter, images, setImages, promoti
                 <div className="create-category">
                     <div className="red-text medium-text create-subheader"> / IMAGES</div>
                     <div>                    
-                        <div className='form-label'> Flyer Image</div>
+                        <div className='form-label'> Flyer Image URL</div>
                         <input className='form-input full-input' onChange={(e)=> setImages(e.target.value) } value={images}></input>
                         <div className='form-label errors'>possible errors {images}</div>
                         {/* <div className='form-label'> Flyer back url</div>

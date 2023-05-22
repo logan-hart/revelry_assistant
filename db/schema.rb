@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_142233) do
     t.integer "cost", null: false
     t.integer "age_minimum", null: false
     t.string "images"
+    t.string "promotional_name"
     t.string "promotional_links"
     t.string "media"
     t.integer "available_tickets"
